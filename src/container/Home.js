@@ -1,9 +1,8 @@
 import React from 'react';
-import Button from '../../components/Button';
+import Button from '../components/Button';
 import Package from '../../package.json';
 import Github from '../Github';
 import styles from './style.scss';
-
 
 const Home = () => (
   <div className={styles.app}>

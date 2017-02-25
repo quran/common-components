@@ -28,6 +28,7 @@ const config = {
         hot: true,
         historyApiFallback: true,
         noInfo: false,
+        port: 8083,
         contentBase: path.resolve(__dirname, 'build'),
         stats: 'errors-only',
         publicPath: '/'
@@ -42,9 +43,9 @@ const config = {
                 ],
                 exclude: /node_modules/
             },
-            // {
-            //     test: /\.js$/, use: "eslint-loader", exclude: /node_modules/
-            // },
+            {
+                test: /\.js$/, use: "eslint-loader", exclude: /node_modules/
+            },
             {
                 test: /\.css|.scss$/,
                 use: [
@@ -91,7 +92,7 @@ if (isProduction) {
         'react-hot-loader/patch',
         // activate HMR for React
 
-        'webpack-dev-server/client?http://localhost:8080',
+        'webpack-dev-server/client?http://localhost:8083',
         // bundle the client for webpack-dev-server
         // and connect to the provided endpoint
 
