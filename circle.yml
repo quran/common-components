@@ -1,7 +1,4 @@
 --- 
-machine:
-  node:
-    version: 7.2.1
 dependencies: 
   cache_directories: 
     - ~/.cache/yarn
@@ -20,9 +17,11 @@ deployment:
       - "npm version patch"
       - "git commit --amend -m 'automated patching [ci skip]'"
       - "npm run deploy:npm"
-			- "npm run deploy:gp"
+      - "npm run deploy:gp"
       - "git push"
-			
+machine: 
+  node: 
+    version: "7.2.1"
 test: 
   override: 
     - "yarn test"
