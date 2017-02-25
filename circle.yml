@@ -1,4 +1,7 @@
 --- 
+machine:
+  node:
+    version: 7.2.1
 dependencies: 
   cache_directories: 
     - ~/.cache/yarn
