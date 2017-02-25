@@ -6,16 +6,7 @@
 	],
 	"plugins": [
 		"react-hot-loader/babel",
-		"transform-react-require",
-		[
-			"transform-runtime",
-			{
-				"helpers": false, // defaults to true
-				"polyfill": false, // defaults to true
-				"regenerator": false, // defaults to true
-				"moduleName": "babel-runtime" // defaults to "babel-runtime"
-			}
-		]
+		"transform-react-require"
 	],
 	"env": {
 		"production": {
@@ -25,16 +16,7 @@
 				"react"
 			],
 			"plugins": [
-				"transform-react-require",
-				[
-					"transform-runtime",
-					{
-						"helpers": false, // defaults to true
-						"polyfill": false, // defaults to true
-						"regenerator": false, // defaults to true
-						"moduleName": "babel-runtime" // defaults to "babel-runtime"
-					}
-				]
+				"transform-react-require"
 			]
 		},
 		"test": {
@@ -44,16 +26,7 @@
 				"react"
 			],
 			"plugins": [
-				"transform-react-require",
-				[
-					"transform-runtime",
-					{
-						"helpers": false, // defaults to true
-						"polyfill": false, // defaults to true
-						"regenerator": false, // defaults to true
-						"moduleName": "babel-runtime" // defaults to "babel-runtime"
-					}
-				]
+				"transform-react-require"
 			]
 		}
 	}

@@ -6,7 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const htmlOutFile = isProduction ? 'index-prod.html' : 'index.html';
 console.log(`
 ENV: ${process.env.NODE_ENV}
 `);
@@ -43,9 +42,9 @@ const config = {
                 ],
                 exclude: /node_modules/
             },
-            {
-                test: /\.js$/, use: "eslint-loader", exclude: /node_modules/
-            },
+            // {
+            //     test: /\.js$/, use: "eslint-loader", exclude: /node_modules/
+            // },
             {
                 test: /\.css|.scss$/,
                 use: [
@@ -72,7 +71,7 @@ const config = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new CopyWebpackPlugin([
-            { from: htmlOutFile, to: 'index.html' },
+            { from: 'index.html', to: 'index.html' },
         ]),
         // enable HMR globally
         // prints more readable module names in the browser console on HMR updates
@@ -85,23 +84,6 @@ const config = {
 
 if (isProduction) {
     config.devtool = 'source-map';
-    config.externals = [
-        {
-            'react': {
-                root: 'React',
-                commonjs2: 'react',
-                commonjs: 'react',
-                amd: 'react'
-            }
-        },
-        {
-            'react-dom': {
-                root: 'ReactDOM',
-                commonjs2: 'react-dom',
-                commonjs: 'react-dom',
-                amd: 'react-dom'
-            }
-        }]
     config.plugins[1] = () => { };
 } else {
     config.entry.main = ['./main.js'];
