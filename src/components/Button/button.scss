@@ -1,0 +1,48 @@
+$btn-default-bg: #ccc;
+$btn-default-color: #000;
+$btn-hover-color: #187d97;
+$btn-shadow-color: #005067;
+$btn-shadow-green-color: #348856;
+$btn-disabled-shadow-color: #bdbdbd;
+$btn-disabled-color: #6a6a6a;
+$btn-disabled-bg-color: #ececec;
+$btn-green-background-color: #2ADC4C;
+$btn-blue-color: #004F68;
+%btn {
+    outline: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    width: 220px;
+    height: 40px;
+    border-radius: 3px;
+    margin: 1px;
+    background-color: #005a71;
+    box-shadow: 0 2px 0 0 $btn-shadow-color;
+    font-family: OpenSans, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    color: #fefefe;
+    font-weight: bold;
+    &:hover {
+        text-decoration: none;
+        background-color: $btn-hover-color;
+        box-shadow: 0 2px 0 0 $btn-shadow-color;
+        color: #fefefe;
+    }
+    &:disabled {
+        background-color: $btn-disabled-bg-color;
+        box-shadow: 0 2px 0 0 $btn-disabled-shadow-color;
+        color: $btn-disabled-color;
+        cursor: not-allowed;
+    }
+    * {
+        margin-right: 5px;
+    }
+}
+
+.btn {
+    @extend %btn;
+}
