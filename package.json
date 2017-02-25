@@ -14,7 +14,7 @@
     "lint:fix": "npm run lint -- --fix",
     "build": "cross-env webpack --colors --progress",
     "build:prod": "cross-env NODE_ENV=production npm run build -- -p --colors --progress",
-    "deploy:gp": "npm run build:prod && gh-pages -d ./dist",
+    "deploy:gp": "npm run build:prod && gh-pages -d ./build",
     "deploy": "npm run build:prod && npm publish ./"
   },
   "files": [
