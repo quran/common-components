@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.0.11",
+  "version": "0.0.1",
   "description": "Quran.com collection of common UI components",
   "main": "build/index.js",
   "repository": "git@github.com:quran/common-components.git",
@@ -12,14 +12,11 @@
     "test:watch": "npm run test -- --watch",
     "lint": "eslint ./src --ext .js",
     "lint:fix": "npm run lint -- --fix",
-    "build": "cross-env webpack --colors --progress",
-    "build:prod": "cross-env NODE_ENV=production npm run build -- -p --colors --progress",
-    "deploy:gp": "npm run build:prod && gh-pages -d ./build",
-    "deploy": "npm run build:prod && npm publish ./"
+    "build": "cross-env NODE_ENV=production webpack -p --colors --progress",
+    "deploy:gp": "npm run build && gh-pages -d ./build"
   },
   "files": [
-    "build",
-    "package.json",
+    "src/components",
     "README.md"
   ],
   "config": {

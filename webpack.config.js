@@ -11,44 +11,27 @@ console.log(`
 ENV: ${process.env.NODE_ENV}
 `);
 
-const libraryName = 'cPatterns';
 const config = {
     entry: {
-        main: './main.js',
-        Button: ['./components/Button/index.js']
+        main: './main.js'
     },
     output: {
         filename: '[name]/index.js',
-        // the output bundle
-        libraryTarget: 'umd',
-        library: libraryName,
-        libraryTarget: 'umd',
-        umdNamedDefine: true,
         path: path.resolve(__dirname, 'build'),
         publicPath: '/',
         hotUpdateChunkFilename: 'hot/[id].[hash].hot-update.js',
         hotUpdateMainFilename: 'hot/[hash].hot-update.json'
-        // necessary for HMR to know where to load the hot update chunks
     },
 
     context: path.resolve(__dirname, 'src'),
 
     devServer: {
-        // outputPath: path.resolve(__dirname, 'dist'),
         hot: true,
-        // enable HMR on the server
         historyApiFallback: true,
         noInfo: false,
         contentBase: path.resolve(__dirname, 'build'),
-        // match the output path
         stats: 'errors-only',
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-        },
         publicPath: '/'
-        // match the output `publicPath`
     },
     devtool: 'cheap-module-source-map',
     module: {
@@ -75,8 +58,7 @@ const config = {
                             localIdentName: package.config.cssModulePattern
                         }
                     },
-                    'sass-loader?sourceMap',
-                    'postcss-loader',
+                    'sass-loader?sourceMap'
                 ],
             }
         ],
@@ -100,11 +82,7 @@ const config = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : process.env.NODE_ENV),
         }),
-        new WriteFilePlugin({
-            // Write only files that have ".css" extension.
-            log: false,
-            useHashIndex: true
-        }),
+
     ],
 };
 
@@ -128,10 +106,6 @@ if (isProduction) {
             }
         }]
     config.plugins[1] = () => { };
-    config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-        output: { comments: false }, sourceMap: true
-    }));
-
 } else {
     config.entry.main = ['./main.js'];
     config.entry.main.unshift(
