@@ -72,10 +72,7 @@ const config = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new CopyWebpackPlugin([
-            // {output}/file.txt
             { from: htmlOutFile, to: 'index.html' },
-            { from: './index.js' }
-
         ]),
         // enable HMR globally
         // prints more readable module names in the browser console on HMR updates
