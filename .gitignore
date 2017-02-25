@@ -1,0 +1,12 @@
+node_modules/*
+.tags*
+*.log
+tmp
+.idea
+coverage
+dist
+.nyc_output
+*.iml
+tests_output
+node_modules/
+.vscode

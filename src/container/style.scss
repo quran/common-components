@@ -1,0 +1,23 @@
+:global {
+    html {
+        box-sizing: border-box;
+        font-family: helvetica, arial, sans-serif;
+    }
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
+    a {
+        color: white;
+    }
+}
+
+.app {
+    color: black;
+}

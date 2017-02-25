@@ -1,0 +1,60 @@
+{
+	"presets": [
+		"es2015",
+		"stage-2",
+		"react"
+	],
+	"plugins": [
+		"react-hot-loader/babel",
+		"transform-react-require",
+		[
+			"transform-runtime",
+			{
+				"helpers": false, // defaults to true
+				"polyfill": false, // defaults to true
+				"regenerator": false, // defaults to true
+				"moduleName": "babel-runtime" // defaults to "babel-runtime"
+			}
+		]
+	],
+	"env": {
+		"production": {
+			"presets": [
+				"es2015",
+				"stage-2",
+				"react"
+			],
+			"plugins": [
+				"transform-react-require",
+				[
+					"transform-runtime",
+					{
+						"helpers": false, // defaults to true
+						"polyfill": false, // defaults to true
+						"regenerator": false, // defaults to true
+						"moduleName": "babel-runtime" // defaults to "babel-runtime"
+					}
+				]
+			]
+		},
+		"test": {
+			"presets": [
+				"es2015",
+				"stage-2",
+				"react"
+			],
+			"plugins": [
+				"transform-react-require",
+				[
+					"transform-runtime",
+					{
+						"helpers": false, // defaults to true
+						"polyfill": false, // defaults to true
+						"regenerator": false, // defaults to true
+						"moduleName": "babel-runtime" // defaults to "babel-runtime"
+					}
+				]
+			]
+		}
+	}
+}
