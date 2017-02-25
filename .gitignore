@@ -4,7 +4,8 @@ node_modules/*
 tmp
 .idea
 coverage
-dist
+build
+build/**
 .nyc_output
 *.iml
 tests_output
