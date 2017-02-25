@@ -1,3 +1,3 @@
-exports.Button = require('./Button').default;
+exports.Button = require('./components/Button').default;
 
 

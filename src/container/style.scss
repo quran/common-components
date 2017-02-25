@@ -21,3 +21,14 @@
 .app {
     color: black;
 }
+
+.github {
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    &:hover {
+        & path {
+            fill: green;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Quran.com collection of common UI components",
   "main": "index.js",
   "repository": "git@github.com:quran/common-components.git",
@@ -75,13 +75,11 @@
     "webpack": "2.2.0",
     "webpack-dev-server": "2.2.0",
     "webpack-merge": "^2.4.0",
-    "write-file-webpack-plugin": "^3.4.2"
+    "write-file-webpack-plugin": "^3.4.2",
+    "eslint-config-airbnb": "^14.1.0"
   },
   "pre-commit": [
     "lint",
     "test"
-  ],
-  "dependencies": {
-    "eslint-config-airbnb": "^14.1.0"
-  }
+  ]
 }
