@@ -4,3 +4,4 @@ build/
 node_modules
 test_helper.js
 webpack.config.js
+lib

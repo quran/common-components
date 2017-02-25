@@ -11,3 +11,4 @@ build/**
 tests_output
 node_modules/
 .vscode
+components
