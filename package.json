@@ -8,9 +8,9 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./test_helper.js \"@(src)/**/test/*.test@(.js|.jsx)\"",
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./test_helper.js \"@(src|components)/**/test/*.test@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "lint": "eslint ./src --ext .js",
+    "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "build": "cross-env NODE_ENV=production webpack -p --colors --progress",
     "deploy:gp": "npm run build && gh-pages -d ./build"

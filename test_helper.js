@@ -35,23 +35,21 @@ global.testAsyncExpectations = (done, testExpectations) => {
 };
 
 function cssModulesCompile() {
-
   const hook = require('css-modules-require-hook');
   const sass = require('node-sass');
   const { resolve } = require('path');
 
   hook({
-    devMode : true,
-    generateScopedName : config.cssModulePattern,
-    extensions : ['.scss', 'css'],
-    preprocessCss : (css, filepath) => {
+    devMode: true,
+    generateScopedName: config.cssModulePattern,
+    extensions: ['.scss', 'css'],
+    preprocessCss: (css, filepath) => {
       const result = sass.renderSync({
-        data : css,
-        includePaths : [resolve(filepath, '..')]
+        data: css,
+        includePaths: [resolve(filepath, '..')]
       });
 
       return result.css;
     }
   });
-
 }
