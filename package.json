@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Quran.com collection of common UI components",
   "main": "src/components/index.js",
   "repository": "git@github.com:quran/common-components.git",
@@ -16,7 +16,7 @@
     "deploy:gp": "npm run build && gh-pages -d ./build"
   },
   "files": [
-    "src/components",
+    "components",
     "README.md"
   ],
   "config": {
@@ -77,5 +77,5 @@
   "pre-commit": [
     "lint",
     "test"
-  ],
+  ]
 }
