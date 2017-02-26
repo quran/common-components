@@ -1,7 +1,8 @@
 :global {
     html {
         box-sizing: border-box;
-        font-family: helvetica, arial, sans-serif;
+        font-family: "Montserrat", helvetica, arial, sans-serif;
+        height: 100%;
     }
     *,
     *:before,
@@ -12,14 +13,15 @@
     body,
     #root {
         height: 100%;
-    }
-    a {
-        color: white;
+        background-color: #2CA4AB;
     }
 }
 
 .app {
-    color: black;
+    color: white;
+    h1 {
+        font-size: 36px;
+    }
 }
 
 .github {

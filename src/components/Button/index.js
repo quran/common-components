@@ -1,12 +1,10 @@
 import React, { PropTypes } from 'react';
 import styles from './button.scss';
 
-function Button({ color, className = '', onClick, ...props }) {
-  const buttonColor = color ? styles[`btn--${color}`] : '';
-
+function Button({ className = '', onClick, ...props }) {
   return (
     <button
-      className={`${styles.btn} ${buttonColor} ${className}`}
+      className={`${styles.btn} ${className}`}
       onClick={onClick}
       {...props}
     >
@@ -15,7 +13,6 @@ function Button({ color, className = '', onClick, ...props }) {
 }
 
 Button.propTypes = {
-  color: PropTypes.string,
   className: PropTypes.any,
   children: PropTypes.any.isRequired,
   onClick: PropTypes.func.isRequired
