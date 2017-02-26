@@ -4,7 +4,7 @@ import styles from './button.scss';
 function Button({ className = '', onClick, ...props }) {
   return (
     <button
-      className={`${styles.btn} ${className}`}
+      className={`qc ${styles.quranButton} ${className}`}
       onClick={onClick}
       {...props}
     >
