@@ -1,5 +1,7 @@
 $btn-disabled-color: #6a6a6a;
 $btn-disabled-bg-color: #ccc;
+$brand-teal: #2CA4AB;
+;
 %btn {
     outline: 0;
     border: 0;
@@ -10,7 +12,7 @@ $btn-disabled-bg-color: #ccc;
     border-radius: 50px;
     border: 2px solid white;
     color: white;
-    background-color: transparent;
+    background-color: $brand-teal;
     font-size: 14px;
     font-style: normal;
     font-stretch: normal;
@@ -19,7 +21,8 @@ $btn-disabled-bg-color: #ccc;
     touch-action: manipulation;
     &:hover {
         text-decoration: none;
-        color: #2CA4AB;
+        color: $brand-teal;
+        border-color: $brand-teal;
         background-color: white;
     }
     &:disabled {
@@ -33,12 +36,25 @@ $btn-disabled-bg-color: #ccc;
     @extend %btn;
     &.inverted {
         background: white;
-        border-color: #2CA4AB;
-        color: #2CA4AB;
+        border-color: $brand-teal;
+        color: $brand-teal;
         &:hover {
             color: white;
-            background-color: #2CA4AB;
+            background-color: $brand-teal;
             border-color: white;
         }
+    }
+    &.grey {
+        background: white;
+        border-color: #e7e7e7;
+        color: $brand-teal;
+        &:hover {
+            color: white;
+            background-color: $brand-teal;
+            border-color: white;
+        }
+    }
+    &.transparent {
+        background-color: transparent;
     }
 }

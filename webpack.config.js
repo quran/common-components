@@ -46,6 +46,19 @@ const config = {
             {
                 test: /\.js$/, use: "eslint-loader", exclude: /node_modules/
             },
+                {
+                test: /\.png|.jpg$/,
+                use: [
+                    {
+                        loader: 'url-loader?limit=8192',
+                        options: {
+                            limit: 8192,
+                            importLoaders: 1, 
+                            localIdentName: package.config.cssModulePattern
+                        }
+                    }
+                ],
+            },
             {
                 test: /\.css|.scss$/,
                 use: [

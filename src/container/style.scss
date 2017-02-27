@@ -1,3 +1,4 @@
+@import '../utils/reset.scss';
 :global {
     html {
         box-sizing: border-box;
@@ -13,14 +14,36 @@
     body,
     #root {
         height: 100%;
-        background-color: #2CA4AB;
     }
 }
 
 .app {
-    color: white;
+    color: black;
     h1 {
         font-size: 36px;
+    }
+}
+
+.header {
+    background-color: #009faa;
+    background: url('../images/background.jpg') center center no-repeat;
+    background-size: cover;
+    height: 200px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.version {
+    color: white;
+    position: absolute;
+    right: 61px;
+    top: 21px;
+    font-weight: bold;
+    &:hover {
+        color: green;
     }
 }
 
