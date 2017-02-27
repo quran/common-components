@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Quran.com collection of common UI components",
   "main": "index.js",
   "repository": "git@github.com:quran/common-components.git",
