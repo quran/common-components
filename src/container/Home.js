@@ -12,6 +12,9 @@ const Home = () => (
       <h2>Buttons: </h2>
       <Button>Shuffle Play</Button>
       <Button disabled>Disabled</Button>
+      <div>
+        <Button color="inverted">Inverted</Button>
+      </div>
     </section>
   </div>);
 

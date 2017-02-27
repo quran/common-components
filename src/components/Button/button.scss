@@ -32,4 +32,14 @@ $btn-disabled-bg-color: #ccc;
 
 .quranButton {
     @extend %btn;
+    &.inverted {
+        background: white;
+        border-color: #2CA4AB;
+        color: #2CA4AB;
+        &:hover {
+            color: white;
+            background-color: #2CA4AB;
+            border-color: white;
+        }
+    }
 }
