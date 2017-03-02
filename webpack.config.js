@@ -53,8 +53,7 @@ const config = {
                         loader: 'url-loader?limit=8192',
                         options: {
                             limit: 8192,
-                            importLoaders: 1, 
-                            localIdentName: package.config.cssModulePattern
+                            outputPath: '/common-components'
                         }
                     }
                 ],
