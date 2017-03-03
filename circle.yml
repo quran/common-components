@@ -1,27 +1,28 @@
---- 
-dependencies: 
-  cache_directories: 
+---
+dependencies:
+  cache_directories:
     - ~/.cache/yarn
-  override: 
+  override:
     - yarn
-  pre: 
+  pre:
     - ls
     - "sh login.sh"
-deployment: 
-  production: 
+deployment:
+  production:
     branch: master
-    commands: 
+    commands:
       - "echo \"doing a patch update!\""
       - "git config --global user.email \"noreply@quran.com\""
       - "git config --global user.name \"circleci-qurandev\""
       - "npm version patch"
       - "git commit --amend -m 'automated patching [ci skip]'"
+      - "git push"
       - "npm run deploy:npm"
       - "npm run deploy:gp"
-      - "git push"
-machine: 
-  node: 
+
+machine:
+  node:
     version: "7.2.1"
-test: 
-  override: 
+test:
+  override:
     - "yarn test"
