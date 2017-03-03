@@ -18,6 +18,10 @@ module.exports = {
       {
         test: /\.css|.scss$/,
         loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded&sourceMap'
+      },
+      {
+        test: /\.jpg$/,
+        loader: 'url-loader?limit=8192'
       }
     ],
   },
