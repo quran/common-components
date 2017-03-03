@@ -7,7 +7,7 @@ function loadStories() {
 }
 
 setOptions({
-  name: 'Common Component',
+  name: 'Common Components',
   url: 'https://github.com/quran/common-components',
   goFullScreen: false,
   showLeftPanel: true,
