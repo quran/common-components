@@ -16,7 +16,9 @@
     "build:components": "babel src/components --out-dir lib --copy-files --ignore test ",
     "build": "cross-env NODE_ENV=production webpack -p --colors --progress",
     "deploy:gp": "npm run build && gh-pages -d ./build",
-    "deploy:npm": "npm run clean && npm run build:components && npm publish ./"
+    "deploy:npm": "npm run clean && npm run build:components && npm publish ./",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "files": [
     "lib",
@@ -26,6 +28,7 @@
     "cssModulePattern": "quran-[name]__[local]"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
@@ -87,6 +90,7 @@
     "test"
   ],
   "dependencies": {
-    "file-loader": "^0.10.1"
+    "file-loader": "^0.10.1",
+    "getstorybook": "^1.7.0"
   }
 }

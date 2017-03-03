@@ -1,23 +1,30 @@
 import React, { PropTypes } from 'react';
 import styles from './button.scss';
 
-function Button({ className = '', color = '', onClick, ...props }) {
+function Button({ className = '', color = '', onClick, children, ...props }) {
   const buttonType = color && styles[color];
+
   return (
     <button
       className={`qc ${styles.quranButton} ${className} ${buttonType}`}
       onClick={onClick}
       {...props}
     >
-      {props.children}
-    </button>);
+      {children}
+    </button>
+  );
 }
 
 Button.propTypes = {
-  className: PropTypes.any,
+  className: PropTypes.string,
   color: PropTypes.string,
-  children: PropTypes.any.isRequired,
+  children: PropTypes.element.isRequired,
   onClick: PropTypes.func.isRequired
+};
+
+Button.defaultProps = {
+  className: '',
+  color: ''
 };
 
 export default Button;

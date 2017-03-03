@@ -1,76 +1,48 @@
 {
-	"extends": "airbnb",
-	"parser": "babel-eslint",
-	"rules": {
-		"comma-dangle": 0,
-		"react/forbid-prop-types": 0,
-		"react/react-in-jsx-scope": 0,
-		"react/require-default-props": 0,
-		"react/jsx-filename-extension": [
-			1,
-			{
-				"extensions": [
-					".js",
-					".jsx"
-				]
-			}
-		],
-		"import/no-extraneous-dependencies": 0,
-		"import/extensions": 0,
-		"import/no-unresolved": 0,
-		"strict": 0,
-		"global-require": 0,
-		"no-invalid-regexp": 2,
-		"prefer-const": 1,
-		"prefer-spread": 1,
-		"prefer-template": 1,
-		"no-unused-expressions": 0,
-		"keyword-spacing": [
-			2,
-			{
-				"after": true,
-				"before": true
-			}
-		],
-		"comma-spacing": [
-			2,
-			{
-				"before": false,
-				"after": true
-			}
-		],
-		"no-multiple-empty-lines": [
-			"error",
-			{
-				"max": 2,
-				"maxBOF": 1
-			}
-		]
-	},
-	"ecmaFeatures": {
-		"classes": true,
-		"jsx": true
-	},
-	"plugins": [
-		"react"
-	],
-	"settings": {
-		"import/resolver": "webpack"
-	},
-	"parserOptions": {
-		"ecmaFeatures": {
-			"experimentalObjectRestSpread": true
-		}
-	},
-	"globals": {
-		"__DEVELOPMENT__": true,
-		"expect": true,
-		"browser": true,
-		"sinon": true,
-		"document": true
-	},
-	"env": {
-		"mocha": true,
-		"amd": true
-	}
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "comma-dangle": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "strict": 0
+  },
+  "ecmaFeatures": {
+    "classes": true,
+    "jsx": true
+  },
+  "plugins": [
+    "react",
+    "mocha"
+  ],
+  "settings": {
+    "import/resolver": "webpack"
+  },
+  "parserOptions":{
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "globals": {
+    "__DEVELOPMENT__": true,
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__DISABLE_SSR__": true,
+    "__DEVTOOLS__": true,
+    "socket": true,
+    "webpackIsomorphicTools": true,
+    ga: true,
+    Raven: true,
+    mixpanel: true,
+    "expect": true,
+    "browser": true,
+    "FB": true,
+    sinon: true
+  },
+  "env": {
+    "mocha": true,
+    "amd": true
+  }
 }
