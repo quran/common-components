@@ -13,11 +13,11 @@
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "clean": "rimraf ./lib",
+    "build-storybook": "build-storybook -o ./build",
     "build:components": "babel src/components --out-dir lib --copy-files --ignore test ",
-    "deploy:gp": "npm run build && gh-pages -d ./build",
+    "deploy:gp": "npm run build-storybook && gh-pages -d ./build",
     "deploy:npm": "npm run clean && npm run build:components && npm publish ./",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o ./build"
   },
   "files": [
     "lib",
