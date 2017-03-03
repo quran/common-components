@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styles from './button.scss';
 
-function Button({ className = '', color = '', onClick, children, ...props }) {
+function Button({ className, color, onClick, children, ...props }) {
   const buttonType = color && styles[color];
 
   return (

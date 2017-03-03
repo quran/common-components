@@ -17,7 +17,7 @@ module.exports = {
       // add your custom loaders.
       {
         test: /\.css|.scss$/,
-        loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded&sourceMap'
+        loader: `style!css?modules&importLoaders=2&sourceMap&localIdentName=${package.config.cssModulePattern}!sass?outputStyle=expanded&sourceMap`
       },
       {
         test: /\.jpg$/,

@@ -7,18 +7,17 @@
   "author": "Quran.com",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "start": "npm run storybook",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./test_helper.js \"@(src|components)/**/test/*.test@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "clean": "rimraf ./lib",
     "build:components": "babel src/components --out-dir lib --copy-files --ignore test ",
-    "build": "cross-env NODE_ENV=production webpack -p --colors --progress",
     "deploy:gp": "npm run build && gh-pages -d ./build",
     "deploy:npm": "npm run clean && npm run build:components && npm publish ./",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o ./build"
   },
   "files": [
     "lib",
