@@ -2,7 +2,7 @@
 set -o nounset
 set -o errexit
 
-echo "NPM LOGIN"
+echo "CIRCLE-CI NPM LOGIN"
 
 npm login <<!
 $NPM_USERNAME
