@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
-import styles from './button.scss';
+import styles from './style.scss';
 
 function Button({ className, color, onClick, children, ...props }) {
   const buttonType = color && styles[color];
 
   return (
     <button
-      className={`qc ${styles.quranButton} ${className} ${buttonType}`}
+      className={`${styles.quranButton} ${className} ${buttonType}`}
       onClick={onClick}
       {...props}
     >

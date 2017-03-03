@@ -24,7 +24,7 @@
     "README.md"
   ],
   "config": {
-    "cssModulePattern": "quran-[name]__[local]"
+    "cssModulePattern": "quran-[name]__[local][hash:base64:5]"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
