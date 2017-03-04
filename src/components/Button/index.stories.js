@@ -12,6 +12,6 @@ storiesOf('Button', module)
   .add('disabled', () => (
     <Button disabled>Disabled</Button>
   ))
-  .add('with color', () => (
+  .add('Inverted', () => (
     <Button color="inverted">Inverted</Button>
   ));

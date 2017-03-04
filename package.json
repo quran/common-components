@@ -1,34 +1,34 @@
 {
   "name": "quran-components",
-  "version": "0.0.16",
+  "version": "0.0.25",
   "description": "Quran.com collection of common UI components",
   "main": "index.js",
   "repository": "git@github.com:quran/common-components.git",
   "author": "Quran.com",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "start": "npm run storybook",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./test_helper.js \"@(src|components)/**/test/*.test@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
-    "clean": "rimraf ./lib",
-    "build:components": "babel src/components --out-dir lib --copy-files --ignore test ",
-    "build": "cross-env NODE_ENV=production webpack -p --colors --progress",
-    "deploy:gp": "npm run build && gh-pages -d ./build",
-    "deploy:npm": "npm run clean && npm run build:components && npm publish ./",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "prebuild:components": "rimraf ./lib",
+    "build-storybook": "build-storybook -o ./build",
+    "build:components": "babel src/components --out-dir lib --copy-files --ignore test,*.stories.js",
+    "deploy:gp": "npm run build-storybook && gh-pages -d ./build",
+    "deploy:npm": "npm run build:components && npm publish ./",
+    "storybook": "start-storybook -p 6006"
   },
   "files": [
     "lib",
     "README.md"
   ],
   "config": {
-    "cssModulePattern": "quran-[name]__[local]"
+    "cssModulePattern": "quran-[name]__[local][hash:base64:5]"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addon-options": "^1.0.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
@@ -45,8 +45,6 @@
     "chai-as-promised": "^6.0.0",
     "chai-enzyme": "^0.6.1",
     "classnames": "^2.2.5",
-    "clean-webpack-plugin": "^0.1.15",
-    "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.1.4",
     "css-loader": "0.23.1",
     "css-modules-require-hook": "^4.0.5",
@@ -62,12 +60,9 @@
     "expose-loader": "^0.7.1",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
     "gh-pages": "^0.12.0",
-    "imports-loader": "^0.7.0",
-    "isomorphic-fetch": "^2.2.1",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "node-sass": "^4.3.0",
-    "postcss-loader": "0.9.1",
     "pre-commit": "^1.2.2",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
@@ -81,9 +76,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.8",
     "webpack": "2.2.0",
-    "webpack-dev-server": "2.2.0",
-    "webpack-merge": "^2.4.0",
-    "write-file-webpack-plugin": "^3.4.2"
+    "webpack-merge": "^2.4.0"
   },
   "pre-commit": [
     "lint",

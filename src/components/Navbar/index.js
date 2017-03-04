@@ -11,7 +11,9 @@ class Navbar extends Component {
   }
 
   static defaultProps = {
-    fixed: false
+    fixed: false,
+    leftNav: [],
+    rightNav: []
   }
 
   state = {

@@ -21,8 +21,8 @@ class Tabs extends Component {
   }
 
   render() {
-    const widthPercent = 1 / this.props.children.length * 100;
-    const width = `${widthPercent}%`
+    const widthPercent = (1 / this.props.children.length) * 100;
+    const width = `${widthPercent}%`;
     const marginLeft = `${(this.state.selected) * widthPercent}%`;
 
     return (

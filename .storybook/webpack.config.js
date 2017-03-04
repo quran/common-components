@@ -5,7 +5,6 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-
 const package = require('../package.json');
 
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
       // add your custom loaders.
       {
         test: /\.css|.scss$/,
-        loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded&sourceMap'
+        loader: `style!css?modules&importLoaders=2&sourceMap&localIdentName=${package.config.cssModulePattern}!sass?outputStyle=expanded&sourceMap`
       },
       {
         test: /\.jpg$/,
