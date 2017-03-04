@@ -2,25 +2,27 @@
   "name": "quran-components",
   "version": "0.0.28",
   "description": "Quran.com collection of common UI components",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "git@github.com:quran/common-components.git",
   "author": "Quran.com",
   "license": "MIT",
   "scripts": {
     "start": "npm run storybook",
-    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./test_helper.js \"@(src|components)/**/test/*.test@(.js|.jsx)\"",
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./utils/test_helper.js \"@(src|components)/**/test/*.test@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "prebuild:components": "rimraf ./lib",
     "build-storybook": "build-storybook -o ./build",
     "build:components": "babel src/components --out-dir lib --copy-files --ignore test,*.stories.js",
+    "postbuild:components": "node utils/generateModulesList.js",
     "deploy:gp": "npm run build-storybook && gh-pages -d ./build",
     "deploy:npm": "npm run build:components && npm publish ./",
     "storybook": "start-storybook -p 6006"
   },
   "files": [
     "lib",
+    "lib/index.js",
     "README.md"
   ],
   "config": {

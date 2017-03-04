@@ -1,5 +1,5 @@
 import 'isomorphic-fetch';
-import { config } from './package';
+import { config } from '../package';
 import jsdom from 'jsdom';
 import chai from 'chai';
 import sinon from 'sinon';
