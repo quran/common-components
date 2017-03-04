@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook -o ./build",
     "build:components": "babel src/components --out-dir lib --copy-files --ignore test,*.stories.js",
     "postbuild:components": "node utils/generateModulesList.js",
-    "deploy:gp": "npm run build-storybook && gh-pages -d ./build",
+    "deploy:gp": "npm run build-storybook && gh-pages -m 'update [ci skip]' -d ./build",
     "deploy:npm": "npm run build:components && npm publish ./",
     "storybook": "start-storybook -p 6006"
   },
