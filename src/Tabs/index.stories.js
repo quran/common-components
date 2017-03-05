@@ -17,7 +17,7 @@ storiesOf('Tabs', module)
       </Tab>
     </Tabs>
   ))
-  .add('with onClick handler, provides a callback with the current index', () => (
+  .add('with onClick handler', () => (
     <Tabs onClick={selected => console.log(selected)}>
       <Tab title="title 1">
         Some info 1

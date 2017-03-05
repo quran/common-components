@@ -4,13 +4,11 @@ import jsdom from 'jsdom';
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
 import chaiEnzyme from 'chai-enzyme';
 const doc = jsdom.jsdom('<!doctype html><html><body><div id="render-here"></div></body></html>');
 const win = doc.defaultView;
 
 chai.use(sinonChai);
-chai.use(chaiAsPromised);
 chai.use(chaiEnzyme());
 chai.should();
 global.expect = chai.expect;
