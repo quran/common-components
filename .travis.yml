@@ -1,0 +1,21 @@
+cache: yarn
+
+language: node_js
+node_js:
+  - "7"
+install:
+  - yarn install
+notifications:
+  email: false
+before_script:
+	- ls
+	- "sh login.sh"
+script:
+	- echo \"doing a patch update!\"
+	- git config --global user.email \"noreply@quran.com\"
+	- git config --global user.name \"circleci-qurandev\"
+	- npm version patch
+	- git commit --amend -m 'automated patching [ci skip]'
+	- git push
+	- npm run deploy:npm
+	- npm run deploy:gp
