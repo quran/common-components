@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=8192&name=[name].[ext]'
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,

@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
-import backgroundImage from '../../images/background.jpg';
-
-const styles = require('./style.scss');
+import styles from './style.scss';
+import backgroundImage from '../images/background.jpg';
 
 const Jumbotron = ({ children }) => (
   <div
