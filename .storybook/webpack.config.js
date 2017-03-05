@@ -13,10 +13,9 @@ module.exports = {
   ],
   module: {
     loaders: [
-      // add your custom loaders.
-       {
-        test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/
-      },
+      //  {
+      //   test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/
+      // },
       {
         test: /\.css|.scss$/,
         loader: `style!css?modules&importLoaders=2&sourceMap&localIdentName=${package.config.cssModulePattern}!sass?outputStyle=expanded&sourceMap`
