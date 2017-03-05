@@ -78,14 +78,12 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.8",
     "webpack": "2.2.0",
-    "webpack-merge": "^2.4.0"
+    "webpack-merge": "^2.4.0",
+    "file-loader": "^0.10.1",
+    "getstorybook": "^1.7.0"
   },
   "pre-commit": [
     "lint",
     "test"
-  ],
-  "dependencies": {
-    "file-loader": "^0.10.1",
-    "getstorybook": "^1.7.0"
-  }
+  ]
 }
