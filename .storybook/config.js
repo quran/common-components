@@ -9,11 +9,11 @@ function loadStories() {
 setOptions({
   name: 'Common Components',
   url: 'https://github.com/quran/common-components',
-  goFullScreen: false,
-  showLeftPanel: true,
-  showDownPanel: true,
+  goFullScreen: true,
+  showLeftPanel: false,
+  showDownPanel: false,
   showSearchBox: false,
-  downPanelInRight: true,
+  downPanelInRight: false,
   sortStoriesByKind: true,
 });
 

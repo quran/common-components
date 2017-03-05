@@ -1,14 +1,16 @@
 import React, { PropTypes, Component } from 'react';
-
-const styles = require('./style.scss');
+import styles from './style.scss';
 
 class Tabs extends Component {
   static propTypes = {
     selected: PropTypes.number,
+    className: PropTypes.string,
+    onClick: PropTypes.func, // eslint-disable-line
     children: PropTypes.arrayOf(PropTypes.element).isRequired
   }
 
   static defaultProps = {
+    className: '',
     selected: 0
   }
 
@@ -17,20 +19,24 @@ class Tabs extends Component {
   }
 
   handleTabClick(selected) {
+    if (this.props.onClick) {
+      this.props.onClick(selected);
+    }
     this.setState({ selected });
   }
 
   render() {
-    const widthPercent = (1 / this.props.children.length) * 100;
+    const { children, className } = this.props;
+    const widthPercent = (1 / children.length) * 100;
     const width = `${widthPercent}%`;
     const marginLeft = `${(this.state.selected) * widthPercent}%`;
 
     return (
-      <div className={styles.container}>
+      <div className={`${styles.container} ${className}`}>
         <ul className={styles.tabs}>
           {
             this.props.children.map((child, index) => (
-              <li>
+              <li key={`index-${child.props.title}`}>
                 <a
                   tabIndex="-1"
                   onClick={() => this.handleTabClick(index)}
@@ -46,7 +52,7 @@ class Tabs extends Component {
         </ul>
 
         <div>
-          {this.props.children[this.state.selected]}
+          {children[this.state.selected]}
         </div>
       </div>
     );
