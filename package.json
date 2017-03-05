@@ -29,6 +29,7 @@
     "cssModulePattern": "quran-[name]__[local][hash:base64:5]"
   },
   "devDependencies": {
+    "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.21.0",
     "@kadira/storybook-addon-options": "^1.0.1",
     "babel-cli": "^6.18.0",
