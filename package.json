@@ -1,7 +1,7 @@
 {
   "name": "quran-components",
   "version": "0.0.37",
-  "description": "Quran.com collection of common UI components",
+  "description": "Quran.com collection of common React UI components",
   "main": "lib/index.js",
   "repository": "git@github.com:quran/common-components.git",
   "author": "Quran.com",
