@@ -1,7 +1,6 @@
 /* global document */
 import React, { PropTypes, Component } from 'react';
-
-const styles = require('./style.scss');
+import styles from './style.scss';
 
 class Drawer extends Component {
   static propTypes = {
