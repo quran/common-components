@@ -1,19 +1,20 @@
 /* global window */
 import React, { PropTypes, Component } from 'react';
+import styles from './style.scss';
 
-const styles = require('./style.scss');
+export { default as NavItem } from './NavItem.js';
 
 class Navbar extends Component {
   static propTypes = {
-    leftNav: PropTypes.arrayOf(PropTypes.element),
-    rightNav: PropTypes.arrayOf(PropTypes.element),
-    fixed: PropTypes.bool
+    children: PropTypes.arrayOf(PropTypes.element),
+    fixed: PropTypes.bool,
+    className: PropTypes.string
   }
 
   static defaultProps = {
     fixed: false,
-    leftNav: [],
-    rightNav: []
+    children: [],
+    className: ''
   }
 
   state = {
@@ -44,17 +45,12 @@ class Navbar extends Component {
   }
 
   render() {
-    const { leftNav, rightNav, fixed } = this.props;
+    const { children, fixed, className } = this.props;
 
     return (
-      <nav className={`${styles.nav} ${fixed && styles.fixed} ${this.state.scrolled && styles.scrolled}`}>
+      <nav className={`${styles.nav} ${fixed && styles.fixed} ${this.state.scrolled && styles.scrolled} ${className}`}>
         <div className={styles.container}>
-          <ul className={styles.nav}>
-            {leftNav}
-          </ul>
-          <ul className={`${styles.nav} ${styles.right}`}>
-            {rightNav}
-          </ul>
+          {children}
         </div>
       </nav>
     );
