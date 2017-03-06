@@ -2,8 +2,7 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './style.scss';
 
-export { default as LeftNav } from './Left.js';
-export { default as RightNav } from './Right.js';
+export { default as NavItem } from './NavItem.js';
 
 class Navbar extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import Navbar, { LeftNav, RightNav } from './index';
+import Navbar, { NavItem } from './index';
 import Button from '../Button';
 
 storiesOf('Navbar', module)
@@ -19,30 +19,51 @@ storiesOf('Navbar', module)
   ))
   .add('with items', () => (
     <Navbar>
-      <LeftNav>
+      <NavItem>
         <li>Something</li>
         <li><a tabIndex="-1">link</a></li>
-      </LeftNav>
-      <RightNav>
+      </NavItem>
+      <NavItem right>
         <li>Something</li>
         <li><a tabIndex="-1">link</a></li>
         <li><Button onClick={action('clicked')}>Hello Button</Button></li>
-      </RightNav>
+      </NavItem>
     </Navbar>
   ))
   .add('fixed', () => (
     <Navbar
       fixed
     >
-      <LeftNav>
+      <NavItem>
         <li>Something</li>
         <li><a tabIndex="-1">link</a></li>
-      </LeftNav>
-      <RightNav>
+      </NavItem>
+      <NavItem right>
         <li>Something</li>
         <li><a tabIndex="-1">link</a></li>
         <li><Button onClick={action('clicked')}>Hello Button</Button></li>
-      </RightNav>
+      </NavItem>
+    </Navbar>
+  ))
+  .add('left only', () => (
+    <Navbar
+      fixed
+    >
+      <NavItem>
+        <li>Something</li>
+        <li><a tabIndex="-1">link</a></li>
+      </NavItem>
+    </Navbar>
+  ))
+  .add('right only', () => (
+    <Navbar
+      fixed
+    >
+      <NavItem right>
+        <li>Something</li>
+        <li><a tabIndex="-1">link</a></li>
+        <li><Button onClick={action('clicked')}>Hello Button</Button></li>
+      </NavItem>
     </Navbar>
   ))
   .add('With custom classNames', () => (
@@ -50,14 +71,14 @@ storiesOf('Navbar', module)
       fixed
       className="my-custm-className"
     >
-      <LeftNav className="my-custm-className__left">
+      <NavItem className="my-custm-className__left">
         <li>Something</li>
         <li><a tabIndex="-1">link</a></li>
-      </LeftNav>
-      <RightNav className="my-custm-className__right">
+      </NavItem>
+      <NavItem className="my-custm-className__right" right>
         <li>Something</li>
         <li><a tabIndex="-1">link</a></li>
         <li><Button onClick={action('clicked')}>Hello Button</Button></li>
-      </RightNav>
+      </NavItem>
     </Navbar>
   ));
