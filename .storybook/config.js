@@ -15,7 +15,7 @@ setOptions({
   url: 'https://github.com/quran/common-components',
   goFullScreen: false,
   showLeftPanel: true,
-  showDownPanel: false,
+  showDownPanel: true,
   showSearchBox: false,
   downPanelInRight: false,
   sortStoriesByKind: true,
