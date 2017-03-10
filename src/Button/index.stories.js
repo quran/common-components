@@ -15,12 +15,6 @@ storiesOf('Button', module)
   .add('Inverted', () => (
     <Button color="inverted">Inverted</Button>
   ))
-  .add('Link (Provide href)', () => (
+  .add('With href', () => (
     <Button href="http://Quran.com" target="_blank">😎 👍 💯 Quran.com</Button>
-  ))
-  .add('Link disabled', () => (
-    <Button href="http://Quran.com" target="_blank" disabled>😎 👍 💯 Quran.com</Button>
-  ))
-  .add('Link Inverted', () => (
-    <Button color="inverted" href="http://Quran.com" target="_blank">😎 👍 💯 Quran.com</Button>
   ));
