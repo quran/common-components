@@ -7,4 +7,9 @@ storiesOf('Jumbotron', module)
     <Jumbotron>
       Hello world
     </Jumbotron>
+  ))
+  .add('with props', () => (
+    <Jumbotron className="quranJumbo" style={{ height: '200px' }} id="header">
+      Hello world
+    </Jumbotron>
   ));

@@ -1,12 +1,19 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './style.scss';
 
+export { default as Tab } from './Tab';
+
 class Tabs extends Component {
   static propTypes = {
     selected: PropTypes.number,
     className: PropTypes.string,
     onClick: PropTypes.func, // eslint-disable-line
-    children: PropTypes.arrayOf(PropTypes.element).isRequired
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.element),
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
+      PropTypes.string
+    ]).isRequired
   }
 
   static defaultProps = {

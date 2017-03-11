@@ -1,7 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import Tabs from './index';
-import Tab from '../Tab';
+import { storiesOf, action } from '@kadira/storybook';
+import Tabs, { Tab } from './index';
 
 storiesOf('Tabs', module)
   .add('default', () => (
@@ -18,7 +17,7 @@ storiesOf('Tabs', module)
     </Tabs>
   ))
   .add('with onClick handler', () => (
-    <Tabs onClick={selected => console.log(selected)}>
+    <Tabs onClick={action()}>
       <Tab title="title 1">
         Some info 1
       </Tab>
