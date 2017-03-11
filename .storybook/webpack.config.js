@@ -8,6 +8,8 @@
 const package = require('../package.json');
 
 module.exports = {
+  debug : true,
+  devtool : 'cheap-module-source-map',
   plugins: [
     // your custom plugins
   ],
