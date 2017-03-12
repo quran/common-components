@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import { qcLoader, active, loader } from './style.scss';
 
-const Loader = ({ children, isActive }) => (
+const Loader = ({ children, isActive, className, ...props }) => (
   <div className={isActive ? qcLoader : ''}>
     {isActive && <div className={active} />}
-    {isActive && <div className={loader}>Loading...</div>}
+    {isActive && <div className={loader} {...props}>Loading...</div>}
     {children}
   </div>
 
@@ -17,11 +17,13 @@ Loader.propTypes = {
     PropTypes.node,
     PropTypes.string
   ]).isRequired,
-  isActive: PropTypes.bool.isRequired
+  isActive: PropTypes.bool.isRequired,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
-  spin: false,
+  isActive: false,
+  className: '',
   children: []
 };
 
