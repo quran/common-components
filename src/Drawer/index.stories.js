@@ -4,12 +4,12 @@ import Drawer from './index';
 
 storiesOf('Drawer', module)
   .add('default', () => (
-    <Drawer>
+    <Drawer open={false}>
       <p>Drawer content</p>
     </Drawer>
   ))
   .add('with handleOpen function', () => (
-    <Drawer handleOpen={action('handleOpen')}>
+    <Drawer handleOpen={action('handleOpen')} open={false}>
       <p>Drawer content</p>
     </Drawer>
   ));
