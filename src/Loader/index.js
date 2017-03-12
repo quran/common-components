@@ -4,7 +4,7 @@ import { qcLoader, active, loader } from './style.scss';
 const Loader = ({ children, isActive, className, ...props }) => (
   <div className={isActive ? qcLoader : ''}>
     {isActive && <div className={active} />}
-    {isActive && <div className={loader} {...props}>Loading...</div>}
+    {isActive && <div className={`loader ${className}`} {...props}>Loading...</div>}
     {children}
   </div>
 
