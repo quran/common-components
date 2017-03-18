@@ -4,7 +4,7 @@ import Checkbox from './index';
 
 storiesOf('Checkbox', module)
   .add('with text', () => (
-    <Checkbox key={'translation'} id={'translation'} name="type" handleChange={() => action('translation')}>
+    <Checkbox key="translation" id="translation" name="type" handleChange={action('translation')}>
       translation
     </Checkbox>
   ));
