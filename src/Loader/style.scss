@@ -36,6 +36,12 @@ $brand-teal-color: #2CA4AB;
         height: 6em;
         position: fixed;
     }
+
+    &.relative{
+      position: relative;
+      top: initial;
+      left: initial;
+    }
   }
 
   @-webkit-keyframes load8 {
