@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import cx from 'classnames';
 import styles from './style.scss';
 
 function Button({ className, color, children, href, ...props }) {
@@ -6,18 +7,21 @@ function Button({ className, color, children, href, ...props }) {
 
   if (href) {
     const attributes = props.disabled && { onClick: (event) => { event.preventDefault(); } };
+    const classnames = cx(styles.quranLink, className, buttonType, { [styles.disabled]: props.disabled, [styles.square]: props.square }); // eslint-disable-line
     return (
       <a
         href={href}
-        className={`${styles.quranLink} ${className} ${buttonType} ${props.disabled && styles.disabled}`}
+        className={classnames}
         {...props}
         {...attributes}
       >{children}</a>);
   }
 
+  const classnames = cx(styles.quranButton, className, buttonType, { [styles.square]: props.square }); // eslint-disable-line
+
   return (
     <button
-      className={`${styles.quranButton} ${className} ${buttonType}`}
+      className={classnames}
       {...props}
     > {children}
     </button>
@@ -28,6 +32,7 @@ Button.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
   href: PropTypes.string,
+  square: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
@@ -41,7 +46,8 @@ Button.defaultProps = {
   className: '',
   color: '',
   disabled: false,
-  href: null
+  href: null,
+  square: false
 };
 
 export default Button;

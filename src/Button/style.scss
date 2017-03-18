@@ -19,6 +19,9 @@ $brand-teal: #2CA4AB;
     text-align: center;
     vertical-align: middle;
     touch-action: manipulation;
+    &.square {
+        border-radius: 0;
+    }
     &:hover {
         text-decoration: none;
         color: $brand-teal;

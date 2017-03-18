@@ -9,6 +9,9 @@ storiesOf('Button', module)
   .add('with some emoji', () => (
     <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
   ))
+  .add('square', () => (
+    <Button onClick={action('clicked')} square>😀 😎 👍 💯</Button>
+  ))
   .add('disabled', () => (
     <Button disabled>Disabled</Button>
   ))
@@ -17,4 +20,7 @@ storiesOf('Button', module)
   ))
   .add('With href', () => (
     <Button href="http://Quran.com" target="_blank">😎 👍 💯 Quran.com</Button>
+  ))
+  .add('With href (disabled)', () => (
+    <Button href="http://Quran.com" target="_blank" disabled>😎 👍 💯 Quran.com</Button>
   ));
