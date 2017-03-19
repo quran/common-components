@@ -20,6 +20,7 @@
   text-decoration: none;
   text-rendering: optimizeLegibility;
   white-space: nowrap;
+  vertical-align: middle;
   /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */
   -moz-font-feature-settings: "liga=1";
   -moz-font-feature-settings: "liga";
