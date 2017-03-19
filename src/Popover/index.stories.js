@@ -13,4 +13,9 @@ storiesOf('Popover', module)
     <Popover trigger={<Button>I am a trigger</Button>}>
       <p>Text here</p>
     </Popover>
+  ))
+  .addWithInfo('persist self', 'Basic usage of the popover', () => (
+    <Popover persist="self" trigger={<Button>I am a trigger</Button>}>
+      <p>Text here</p>
+    </Popover>
   ));
