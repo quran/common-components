@@ -1,0 +1,26 @@
+.site{
+  width: percentage(1 / 2);
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+
+  &:hover{
+    border: 1px solid rgba(#777, 0.25);
+  }
+
+  .link{
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    color: #777;
+  }
+
+  .icon{
+    height: 35px;
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+  }
+}

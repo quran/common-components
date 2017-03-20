@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 
 const styles = require('./style.scss');
 
-const Icon = ({ type, children }) => (
-  <span>
+const Icon = ({ type, children, ...props }) => (
+  <span {...props}>
     <i className={`${styles['ss-icon']} ${styles[`ss-${type}`]}`} />
     {children}
   </span>
