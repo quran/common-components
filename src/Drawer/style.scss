@@ -18,7 +18,18 @@ $width: 280px;
 
   &.open{
     left: 0px;
-    visibility: visible;;
+    visibility: visible;
+  }
+
+  &.right{
+    right: $width * -1;
+    left: initial;
+    transition: right 0.35s cubic-bezier(0.24,1,0.32,1), visibility 0.2s;
+
+    &.open{
+      left: initial;
+      right: 0px;
+    }
   }
 
   :global(.navbar-text){
