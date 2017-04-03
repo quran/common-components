@@ -6,11 +6,13 @@ class Drawer extends Component {
   static propTypes = {
     open: PropTypes.bool.isRequired,
     handleOpen: PropTypes.func,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    right: PropTypes.bool
   };
 
   static defaultProps = {
-    handleOpen: null
+    handleOpen: null,
+    right: false
   }
 
   state = {
@@ -42,7 +44,7 @@ class Drawer extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, right } = this.props;
     const { open } = this.state;
 
     return (
@@ -51,7 +53,7 @@ class Drawer extends Component {
           Drawer
         </button>
         <div
-          className={`${styles.container} sidebar ${open && styles.open}`}
+          className={`${styles.container} sidebar ${open && styles.open} ${right && styles.right}`}
         >
           {children}
         </div>
