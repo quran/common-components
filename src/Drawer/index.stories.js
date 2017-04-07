@@ -27,4 +27,22 @@ storiesOf('Drawer', module)
         <MenuItem>Item 3</MenuItem>
       </Menu>
     </Drawer>
+  ))
+  .add('with toggle', () => (
+    <Drawer open={false} right toggle={<a>A link toggle</a>}>
+      <Menu>
+        <MenuItem>Item 1</MenuItem>
+        <MenuItem>Item 2</MenuItem>
+        <MenuItem>Item 3</MenuItem>
+      </Menu>
+    </Drawer>
+  ))
+  .add('do not close when content clicked', () => (
+    <Drawer open={false} drawerClickClose={false}>
+      <Menu>
+        <MenuItem>Item 1</MenuItem>
+        <MenuItem>Item 2</MenuItem>
+        <MenuItem>Item 3</MenuItem>
+      </Menu>
+    </Drawer>
   ));

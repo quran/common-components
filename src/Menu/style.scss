@@ -26,4 +26,8 @@
       color: #333;
     }
   }
+
+  &.divider{
+    border-top: 1px solid lighten(#777, 30%);
+  }
 }
