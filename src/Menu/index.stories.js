@@ -39,4 +39,22 @@ storiesOf('Menu', module)
       <MenuItem onClick={action('clicked')}>Item 2</MenuItem>
       <MenuItem onClick={action('clicked')}>Item 3</MenuItem>
     </Menu>
+  ))
+  .add('menu inside menu', () => (
+    <Menu>
+      <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
+      <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
+      <MenuItem
+        icon={<Icon type="calendar" />}
+        menu={
+          <Menu>
+            <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
+            <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
+            <MenuItem icon={<Icon type="calendar" />}>Item 3</MenuItem>
+          </Menu>
+        }
+      >
+        Item 3
+      </MenuItem>
+    </Menu>
   ));
