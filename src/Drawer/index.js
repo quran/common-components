@@ -7,12 +7,16 @@ class Drawer extends Component {
     open: PropTypes.bool.isRequired,
     handleOpen: PropTypes.func,
     children: PropTypes.node.isRequired,
-    right: PropTypes.bool
+    right: PropTypes.bool,
+    toggle: PropTypes.element,
+    drawerClickClose: PropTypes.bool
   };
 
   static defaultProps = {
     handleOpen: null,
-    right: false
+    right: false,
+    drawerClickClose: true,
+    toggle: null
   }
 
   state = {
@@ -27,12 +31,22 @@ class Drawer extends Component {
     document.body.removeEventListener('click', this.onBodyClick.bind(this), true);
   }
 
-  onBodyClick = () => {
+  onBodyClick = (event) => {
+    if (!this.props.drawerClickClose) {
+      if (this.content && this.content.contains(event.target)) {
+        return false;
+      }
+    }
+
     if (this.getOpen()) {
       return this.setOpen(false);
     }
 
     return false;
+  }
+
+  onToggleClick = () => {
+    this.setOpen(!this.getOpen());
   }
 
   getOpen() {
@@ -43,17 +57,30 @@ class Drawer extends Component {
     return this.props.handleOpen ? this.props.handleOpen(open) : this.setState({ open });
   }
 
+  renderToggle() {
+    const { toggle } = this.props;
+
+    if (toggle) {
+      return React.cloneElement(toggle, { onClick: this.onToggleClick });
+    }
+
+    return (
+      <button onClick={this.onToggleClick}>
+        Drawer
+      </button>
+    );
+  }
+
   render() {
     const { children, right } = this.props;
     const { open } = this.state;
 
     return (
       <div>
-        <button onClick={() => this.setOpen(!this.getOpen())}>
-          Drawer
-        </button>
+        {this.renderToggle()}
         <div
           className={`${styles.container} sidebar ${open && styles.open} ${right && styles.right}`}
+          ref={(ref) => { this.content = ref; }}
         >
           {children}
         </div>

@@ -18,6 +18,14 @@ storiesOf('Menu', module)
       <MenuItem>Item 3</MenuItem>
     </Menu>
   ))
+  .add('divider', () => (
+    <Menu>
+      <MenuItem>Item 1</MenuItem>
+      <MenuItem divider />
+      <MenuItem>Item 2</MenuItem>
+      <MenuItem>Item 3</MenuItem>
+    </Menu>
+  ))
   .add('with icons', () => (
     <Menu>
       <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
