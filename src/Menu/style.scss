@@ -20,6 +20,7 @@
     color: #777;
     display: block;
     cursor: pointer;
+    position: relative;
 
     &:hover{
       background: #f5f5f5;
@@ -30,4 +31,23 @@
   &.divider{
     border-top: 1px solid lighten(#777, 30%);
   }
+}
+
+.menu{
+  height: 0px;
+  transition: 0.5s height;
+  overflow: hidden;
+
+  .link{
+    padding-left: 35px;
+  }
+
+  &.menuOpen{
+    height: auto;
+  }
+}
+
+.menuIcon{
+  position: absolute;
+  right: 15px;
 }
