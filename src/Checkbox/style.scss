@@ -1,5 +1,7 @@
 @import '../styles/variables.scss';
 .quranCheckbox {
+  cursor: pointer;
+  display: block;
   .checkbox {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -14,6 +16,8 @@
     height: 10px;
     width: 10px;
     outline: none;
+    margin: 0px;
+    position: relative;
     &:hover {
       cursor: pointer;
       border: 1px solid #adb8c0;
@@ -47,16 +51,16 @@
         margin: 0.1em 0 0.1em 0;
         line-height: 1.5em;
         font-weight: 500;
-        position: relative;
-        top: -8px;
+        position: absolute;
+        top: 0px;
         right: 4px;
       }
     }
   }
   & .children {
     position: relative;
-    bottom: 7px;
-    left: 7px;
+    bottom: 4px;
+    left: 12px;
     display: inline-block;
     text-transform: capitalize;
   }
