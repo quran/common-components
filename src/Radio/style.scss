@@ -67,8 +67,9 @@
   padding-right: 20px;
   font-weight: 500;
   color: #777;
-  line-height: 40px;
+  line-height: 20px;
   cursor: pointer;
+  display: block;
 }
 
 .radio:hover .inner {
@@ -104,11 +105,11 @@
 }
 
 .radio .outer {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   display: block;
   float: left;
-  margin: 10px 9px 10px 10px;
+  margin: 0px 5px 0px 0px;
   border: 2px solid $brand-primary;
   border-radius: 50%;
   background-color: #fff;
@@ -123,7 +124,7 @@
   -ms-transform: scale(0);
   transform: scale(0);
   display: block;
-  margin: 5px;
+  margin: 3px;
   border-radius: 50%;
   background-color: $brand-primary;
   opacity: 0;

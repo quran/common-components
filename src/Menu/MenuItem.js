@@ -19,8 +19,8 @@ class MenuItem extends Component {
   }
 
   render() {
-    const { children, icon, href, className, divider, menu, onClick, ...props } = this.props; // eslint-disable-line
-    const Type = href ? Link : 'a';
+    const { children, icon, href, className, divider, menu, onClick, checkbox, ...props } = this.props; // eslint-disable-line
+    const Type = href ? Link : 'div';
 
     return (
       <li className={`${styles.item} ${className} ${divider && styles.divider}`}>
