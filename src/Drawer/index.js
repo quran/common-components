@@ -73,13 +73,12 @@ class Drawer extends Component {
 
   render() {
     const { children, right } = this.props;
-    const { open } = this.state;
 
     return (
       <div>
         {this.renderToggle()}
         <div
-          className={`${styles.container} sidebar ${open && styles.open} ${right && styles.right}`}
+          className={`${styles.container} sidebar ${this.getOpen() && styles.open} ${right && styles.right}`}
           ref={(ref) => { this.content = ref; }}
         >
           {children}
