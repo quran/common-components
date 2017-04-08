@@ -7,4 +7,11 @@ storiesOf('Checkbox', module)
     <Checkbox key="translation" id="translation" name="type" handleChange={action('translation')}>
       translation
     </Checkbox>
+  ))
+  .add('with lots of text', () => (
+    <div style={{ width: 150 }}>
+      <Checkbox key="translation" id="translation" name="type" handleChange={action('translation')}>
+        translationasdasdasdasdsadasdasdasdasd
+      </Checkbox>
+    </div>
   ));
