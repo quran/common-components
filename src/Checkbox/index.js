@@ -11,7 +11,7 @@ const Checkbox = ({ id, name, checked, className, handleChange, children }) => (
       checked={checked}
       onChange={handleChange}
     />
-    <span className={styles.children}>{children}</span>
+    {children}
   </label>
 );
 
