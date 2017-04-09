@@ -4,11 +4,11 @@ Quran Common Components are a set of React UI components. The aim is to promote 
 
 ## Installation
 
-### NPM
+#### NPM
 
 `npm install --save quran-components`
 
-### YARN
+#### YARN
 
 `yarn add quran-components`
 
