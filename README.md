@@ -2,60 +2,63 @@
 
 Quran Common Components are a set of React UI components. The aim is to promote a consistent and reusable component library. 
 
+## Installation
 
-## Install
+### NPM
 
-###NPM
+`npm install --save quran-components`
 
-` npm install --save quran-components`
+### YARN
 
-###YARN
-
-` yarn add quran-components`
+`yarn add quran-components`
 
 ## Usage
-###ES6
+
+#### ES6
 
 ```js 
-	import { Button, Jumbotron } from 'quran-components';
+import React from 'React';
+import { Button, Jumbotron } from 'quran-components';
 
-	render() {
-		return (
-			<div>
-				<Button />
-				<Jumbotron />
-			<div>
-		)
-	}
+const CustomBody = () => (
+  <div>
+    <Button />
+    <Jumbotron />
+  </div>
+);
 ```
 
-also to reduce file size, you can require individual components:
+Also to reduce file size, you can require individual components:
 
-```js 
-	import Button from 'quran-components/lib/Button';
-	render() {
-		return (
-			<div>
-				<Button />
-			<div>
-		)
-	}
+```js
+import React from 'React';
+import Button from 'quran-components/lib/Button';
+
+const MyButton = () => (
+  <div>
+    <Button />
+  </div>
+);
 ```
 
-###ES5
+#### ES5
 
-```js 
-	const component = require('quran-components');
-	const Button = component.Button;
+```js
+var React = require('react');
+var component = require('quran-components');
+var Button = component.Button;
 
-	render() {
-   		return (
-			<div>
-				<Button />
-			<div>)
-	}
+var MyButton = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <Button />
+      <div>
+    );
+  }
+});
 ```
 
 
 
-####[Demo](https://quran.github.io/common-components/)
+##### [Demo](https://quran.github.io/common-components/)
