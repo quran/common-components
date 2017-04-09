@@ -2,7 +2,7 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './style.scss';
 
-import Icon from '../Icon/index';
+import Icon from '../Icon';
 
 class Drawer extends Component {
   static propTypes = {
