@@ -2,6 +2,8 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './style.scss';
 
+import Icon from '../Icon/index';
+
 class Drawer extends Component {
   static propTypes = {
     open: PropTypes.bool.isRequired,
@@ -81,6 +83,11 @@ class Drawer extends Component {
           className={`${styles.container} sidebar ${this.getOpen() && styles.open} ${right && styles.right}`}
           ref={(ref) => { this.content = ref; }}
         >
+          <Icon
+            className={`${styles.closeBtn}`}
+            type="delete"
+            onClick={this.onToggleClick}
+          />
           {children}
         </div>
       </div>
