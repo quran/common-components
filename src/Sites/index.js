@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Icon from '../Icon';
 import Popover from '../Popover';
 import styles from './style.scss';
@@ -11,7 +11,7 @@ const sites = [
   },
   {
     name: 'Audio',
-    logo: 'https://quranicaudio.com/favicon.ico',
+    logo: 'https://raw.githubusercontent.com/quran/audio.quran.com/master/static/favicon.ico',
     href: 'https://quranicaudio.com'
   },
   {
@@ -26,7 +26,7 @@ const sites = [
   }
 ];
 
-const Sites = () => (
+const Sites = ({ className }) => (
   <Popover
     trigger={
       <span style={{ cursor: 'pointer' }}>
@@ -40,7 +40,7 @@ const Sites = () => (
           <div className={styles.site} key={site.name}>
             <a
               href={site.href}
-              className={styles.link}
+              className={`${styles.link} ${className}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -59,5 +59,13 @@ const Sites = () => (
     </div>
   </Popover>
 );
+
+Sites.propTypes = {
+  className: PropTypes.string
+};
+
+Sites.defaultProps = {
+  className: ''
+};
 
 export default Sites;
