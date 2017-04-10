@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import Navbar, { NavItem } from './index';
 import Button from '../Button';
+import Sites from '../Sites';
 
 storiesOf('Navbar', module)
   .addDecorator(story => (
@@ -26,6 +27,7 @@ storiesOf('Navbar', module)
       <NavItem right>
         <li>Something</li>
         <li><a tabIndex="-1">link</a></li>
+        <li><Sites /></li>
         <li><Button onClick={action('clicked')}>Hello Button</Button></li>
       </NavItem>
     </Navbar>
