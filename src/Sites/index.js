@@ -26,8 +26,10 @@ const sites = [
   }
 ];
 
-const Sites = ({ className }) => (
+const Sites = ({ className, popoverClassName }) => (
   <Popover
+    className={popoverClassName}
+    attachment="top center"
     trigger={
       <span style={{ cursor: 'pointer' }}>
         <Icon type="grid" />
@@ -61,11 +63,13 @@ const Sites = ({ className }) => (
 );
 
 Sites.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  popoverClassName: PropTypes.string
 };
 
 Sites.defaultProps = {
-  className: ''
+  className: '',
+  popoverClassName: ''
 };
 
 export default Sites;

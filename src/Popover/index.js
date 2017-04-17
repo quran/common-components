@@ -39,18 +39,18 @@ class Popover extends Component {
   }
 
   render() {
-    const { trigger, children } = this.props;
+    const { trigger, children, attachment, className } = this.props;
 
     return (
       <TetherComponent
-        attachment="top center"
+        attachment={attachment}
         constraints={[{
           to: 'scrollParent'
         }]}
         ref={(popover) => { this.popover = popover; }}
       >
         {trigger}
-        <div className={`${styles.popover} ${this.state.open && styles.open}`}>
+        <div className={`${styles.popover} ${this.state.open && styles.open} ${className}`}>
           {children}
         </div>
       </TetherComponent>
@@ -60,6 +60,8 @@ class Popover extends Component {
 
 Popover.propTypes = {
   trigger: PropTypes.element.isRequired,
+  attachment: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element
@@ -69,7 +71,9 @@ Popover.propTypes = {
 
 Popover.defaultProps = {
   trigger: <a>Click</a>,
-  persist: null
+  persist: null,
+  className: '',
+  attachment: 'top center'
 };
 
 export default Popover;
