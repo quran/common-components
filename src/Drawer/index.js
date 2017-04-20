@@ -86,7 +86,7 @@ class Drawer extends Component {
           <Icon
             className={`${styles.closeBtn}`}
             type="delete"
-            onClick={this.onToggleClick}
+            onClick={this.onBodyClick}
           />
           {children}
         </div>
