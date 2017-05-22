@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styles from './style.scss';
 
-const Checkbox = ({ id, name, checked, className, handleChange, children }) => (
+const Checkbox = ({ id, name, checked, className, handleChange, children, ...props }) => (
   <label className={styles.quranCheckbox} htmlFor={id}>
     <input
       id={id}
@@ -10,14 +10,11 @@ const Checkbox = ({ id, name, checked, className, handleChange, children }) => (
       name={name}
       checked={checked}
       onChange={handleChange}
+      {...props}
     />
     {children}
   </label>
 );
-
-Checkbox.defaultProps = {
-  className: ''
-};
 
 Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
@@ -26,6 +23,12 @@ Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
+  disabled: PropTypes.bool
+};
+
+Checkbox.defaultProps = {
+  className: '',
+  disabled: false
 };
 
 export default Checkbox;
