@@ -72,7 +72,7 @@ class Drawer extends Component {
             className={`${styles.closeBtn}`}
             type="delete"
             onClick={this.onCloseClick}
-          />;
+          />
         </div>
       </div>
     );
