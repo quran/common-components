@@ -5,22 +5,6 @@ import styles from './style.scss';
 import Icon from '../Icon';
 
 class Drawer extends Component {
-  static propTypes = {
-    open: PropTypes.bool.isRequired,
-    handleOpen: PropTypes.func,
-    children: PropTypes.node.isRequired,
-    right: PropTypes.bool,
-    toggle: PropTypes.element,
-    drawerClickClose: PropTypes.bool
-  };
-
-  static defaultProps = {
-    handleOpen: null,
-    right: false,
-    drawerClickClose: true,
-    toggle: null
-  }
-
   state = {
     open: this.props.open || false
   }
@@ -51,6 +35,10 @@ class Drawer extends Component {
     this.setOpen(!this.getOpen());
   }
 
+  onCloseClick = () => {
+    this.setOpen(false);
+  }
+
   getOpen() {
     return this.props.handleOpen ? this.props.open : this.state.open;
   }
@@ -68,8 +56,25 @@ class Drawer extends Component {
 
     return (
       <button onClick={this.onToggleClick}>
-        Drawer
+        Drawer toggle
       </button>
+    );
+  }
+
+  renderHeader() {
+    const { header } = this.props;
+
+    return (
+      <div className={styles.header}>
+        <div className={header && styles.headerText}>
+          {header}
+          <Icon
+            className={`${styles.closeBtn}`}
+            type="delete"
+            onClick={this.onCloseClick}
+          />;
+        </div>
+      </div>
     );
   }
 
@@ -83,16 +88,30 @@ class Drawer extends Component {
           className={`${styles.container} sidebar ${this.getOpen() && styles.open} ${right && styles.right}`}
           ref={(ref) => { this.content = ref; }}
         >
-          <Icon
-            className={`${styles.closeBtn}`}
-            type="delete"
-            onClick={this.onBodyClick}
-          />
+          {this.renderHeader()}
           {children}
         </div>
       </div>
     );
   }
 }
+
+Drawer.propTypes = {
+  open: PropTypes.bool.isRequired,
+  handleOpen: PropTypes.func,
+  children: PropTypes.node.isRequired,
+  right: PropTypes.bool,
+  toggle: PropTypes.element,
+  drawerClickClose: PropTypes.bool,
+  header: PropTypes.element
+};
+
+Drawer.defaultProps = {
+  handleOpen: null,
+  right: false,
+  drawerClickClose: true,
+  toggle: null,
+  header: null
+};
 
 export default Drawer;

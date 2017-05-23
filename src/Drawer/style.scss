@@ -91,3 +91,11 @@ $width: 350px;
   }
 }
 
+.header {
+  height: 50px;
+
+  .headerText{
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    padding-left: 10px;
+  }
+}
