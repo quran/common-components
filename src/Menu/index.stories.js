@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import Menu, { MenuItem } from './index';
 import Icon from '../Icon';
 import Checkbox from '../Checkbox';
