@@ -30,9 +30,9 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@kadira/storybook": "^2.21.0",
-    "@kadira/storybook-addon-actions": "^1.1.1",
-    "@kadira/storybook-addon-options": "^1.0.1",
+    "@storybook/addon-actions": "3.1.2",
+    "@storybook/addon-options": "3.1.2",
+    "@storybook/react": "3.1.3",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
@@ -60,7 +60,6 @@
     "eslint-plugin-mocha": "^4.8.0",
     "eslint-plugin-react": "^6.9.0",
     "file-loader": "^0.10.1",
-    "getstorybook": "^1.7.0",
     "gh-pages": "^0.12.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
@@ -84,6 +83,8 @@
     "test"
   ],
   "dependencies": {
+    "@storybook/addon-info": "^3.1.3",
+    "@storybook/cli": "^3.1.2",
     "react-icons": "^2.2.3",
     "react-tether": "^0.5.6"
   }

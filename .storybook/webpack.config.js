@@ -8,48 +8,54 @@
 const package = require('../package.json');
 
 module.exports = {
-  debug : true,
-  devtool : 'cheap-module-source-map',
-  plugins: [
-    // your custom plugins
-  ],
   module: {
-    loaders: [
-      //  {
-      //   test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/
-      // },
+    rules: [
+      {
+          test: /\.js$/, use: "eslint-loader", exclude: /node_modules/
+      },
       {
         test: /\.css|.scss$/,
-        loader: `style!css?modules&importLoaders=2&sourceMap&localIdentName=${package.config.cssModulePattern}!sass?outputStyle=expanded&sourceMap`
+        use: [
+            'style-loader',
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    importLoaders: 1,
+                    localIdentName: package.config.cssModulePattern
+                }
+            },
+            'sass-loader?sourceMap'
+        ]
       },
       {
         test: /\.jpg$/,
-        loader: 'url-loader?limit=8192&name=[name].[ext]'
+        use: "url-loader?limit=8192&name=[name].[ext]"
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/font-woff'
+        use: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/font-woff'
       },
       {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/font-woff'
+        use: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/font-woff'
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/octet-stream'
+        use: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/octet-stream'
       },
       {
         test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/octet-stream'
+        use: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/octet-stream'
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file?name=fonts/[name].[ext]'
+        use: 'file?name=fonts/[name].[ext]'
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?name=images/[name].[ext]&limit=10000&mimetype=image/svg+xml'
+        use: 'url?name=images/[name].[ext]&limit=10000&mimetype=image/svg+xml'
       }
-    ],
+    ]
   },
 };

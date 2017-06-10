@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import Navbar, { NavItem } from './index';
 import Button from '../Button';
 import Sites from '../Sites';
