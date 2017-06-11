@@ -43,9 +43,9 @@ class Tabs extends Component {
         <ul className={styles.tabs}>
           {
             this.props.children.map((child, index) => (
-              <li key={`index-${child.props.title}`}>
+              <li key={`index-${index + 2}`}>
                 <a
-                  tabIndex="-1"
+                  tabIndex={index + 2}
                   onClick={() => this.handleTabClick(index)}
                   className={index === this.state.selected && styles.active}
                   style={{ width }}
