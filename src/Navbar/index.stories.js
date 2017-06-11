@@ -18,7 +18,7 @@ storiesOf('Navbar', module)
       {story()}
     </div>
   ))
-  .add('with items', () => (
+  .addWithInfo('with items', () => (
     <Navbar>
       <NavItem>
         <li>Something</li>
@@ -32,7 +32,7 @@ storiesOf('Navbar', module)
       </NavItem>
     </Navbar>
   ))
-  .add('fixed', () => (
+  .addWithInfo('fixed', () => (
     <Navbar
       fixed
     >
@@ -47,7 +47,7 @@ storiesOf('Navbar', module)
       </NavItem>
     </Navbar>
   ))
-  .add('left only', () => (
+  .addWithInfo('left only', () => (
     <Navbar
       fixed
     >
@@ -57,7 +57,7 @@ storiesOf('Navbar', module)
       </NavItem>
     </Navbar>
   ))
-  .add('right only', () => (
+  .addWithInfo('right only', () => (
     <Navbar
       fixed
     >
@@ -68,7 +68,7 @@ storiesOf('Navbar', module)
       </NavItem>
     </Navbar>
   ))
-  .add('With custom classNames', () => (
+  .addWithInfo('With custom classNames', () => (
     <Navbar
       fixed
       className="my-custm-className"

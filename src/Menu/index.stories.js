@@ -13,14 +13,14 @@ storiesOf('Menu', module)
       <MenuItem>Item 3</MenuItem>
     </Menu>
   ))
-  .add('bordered', () => (
+  .addWithInfo('bordered', () => (
     <Menu bordered>
       <MenuItem>Item 1</MenuItem>
       <MenuItem>Item 2</MenuItem>
       <MenuItem>Item 3</MenuItem>
     </Menu>
   ))
-  .add('divider', () => (
+  .addWithInfo('divider', () => (
     <Menu>
       <MenuItem>Item 1</MenuItem>
       <MenuItem divider />
@@ -28,21 +28,21 @@ storiesOf('Menu', module)
       <MenuItem>Item 3</MenuItem>
     </Menu>
   ))
-  .add('with icons', () => (
+  .addWithInfo('with icons', () => (
     <Menu>
       <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
       <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
       <MenuItem icon={<Icon type="calendar" />}>Item 3</MenuItem>
     </Menu>
   ))
-  .add('on click', () => (
+  .addWithInfo('on click', () => (
     <Menu>
       <MenuItem onClick={action('clicked')}>Item 1</MenuItem>
       <MenuItem onClick={action('clicked')}>Item 2</MenuItem>
       <MenuItem onClick={action('clicked')}>Item 3</MenuItem>
     </Menu>
   ))
-  .add('menu inside menu', () => (
+  .addWithInfo('menu inside menu', () => (
     <Menu>
       <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
       <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
@@ -60,7 +60,7 @@ storiesOf('Menu', module)
       </MenuItem>
     </Menu>
   ))
-  .add('checkboxes', () => (
+  .addWithInfo('checkboxes', () => (
     <Menu>
       <MenuItem>
         <Checkbox key="translation1" id="translation¡" name="type1" handleChange={action('translation')}>
@@ -79,7 +79,7 @@ storiesOf('Menu', module)
       </MenuItem>
     </Menu>
   ))
-  .add('radio', () => (
+  .addWithInfo('radio', () => (
     <Menu>
       {
         ['translation', 'transliteration'].map(type => (
