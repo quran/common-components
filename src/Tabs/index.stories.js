@@ -3,7 +3,7 @@ import { storiesOf, action } from '@storybook/react';
 import Tabs, { Tab } from './index';
 
 storiesOf('Tabs', module)
-  .add('default', () => (
+  .addWithInfo('default', () => (
     <Tabs>
       <Tab title="title 1">
         Some info 1
@@ -16,7 +16,7 @@ storiesOf('Tabs', module)
       </Tab>
     </Tabs>
   ))
-  .add('with onClick handler', () => (
+  .addWithInfo('with onClick handler', () => (
     <Tabs onClick={action()}>
       <Tab title="title 1">
         Some info 1
@@ -29,7 +29,7 @@ storiesOf('Tabs', module)
       </Tab>
     </Tabs>
   ))
-  .add('selected props', () => (
+  .addWithInfo('selected props', () => (
     <Tabs selected={1}>
       <Tab title="title 1">
         Some info 1
@@ -42,7 +42,7 @@ storiesOf('Tabs', module)
       </Tab>
     </Tabs>
   ))
-  .add('HTML tags in title', () => (
+  .addWithInfo('HTML tags in title', () => (
     <Tabs onClick={action()}>
       <Tab title={<h2>h2</h2>}>
         Some info 1

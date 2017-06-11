@@ -3,7 +3,7 @@ import { storiesOf, action } from '@storybook/react';
 import Radio from './index';
 
 storiesOf('Radio', module)
-  .add('with text', () => (
+  .addWithInfo('with text', () => (
     <div>
       {
         ['translation', 'transliteration'].map(type => (
@@ -14,7 +14,7 @@ storiesOf('Radio', module)
       }
     </div>
   ))
-  .add('default checked', () => (
+  .addWithInfo('default checked', () => (
     <div>
       {
         ['translation', 'transliteration'].map(type => (

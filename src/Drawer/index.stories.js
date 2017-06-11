@@ -4,22 +4,22 @@ import Drawer from './index';
 import Menu, { MenuItem } from '../Menu';
 
 storiesOf('Drawer', module)
-  .add('default', () => (
+  .addWithInfo('default', () => (
     <Drawer open={false}>
       <p>Drawer content</p>
     </Drawer>
   ))
-  .add('with handleOpen function', () => (
+  .addWithInfo('with handleOpen function', () => (
     <Drawer handleOpen={action('handleOpen')} open={false}>
       <p>Drawer</p>
     </Drawer>
   ))
-  .add('right side', () => (
+  .addWithInfo('right side', () => (
     <Drawer open={false} right>
       <p>Drawer content</p>
     </Drawer>
   ))
-  .add('with menu', () => (
+  .addWithInfo('with menu', () => (
     <Drawer open={false} right>
       <Menu>
         <MenuItem>Item 1</MenuItem>
@@ -28,7 +28,7 @@ storiesOf('Drawer', module)
       </Menu>
     </Drawer>
   ))
-  .add('with toggle', () => (
+  .addWithInfo('with toggle', () => (
     <Drawer open={false} right toggle={<a>A link toggle</a>}>
       <Menu>
         <MenuItem>Item 1</MenuItem>
@@ -37,7 +37,7 @@ storiesOf('Drawer', module)
       </Menu>
     </Drawer>
   ))
-  .add('do not close when content clicked', () => (
+  .addWithInfo('do not close when content clicked', () => (
     <Drawer open={false} drawerClickClose={false}>
       <Menu>
         <MenuItem>Item 1</MenuItem>
@@ -46,7 +46,7 @@ storiesOf('Drawer', module)
       </Menu>
     </Drawer>
   ))
-  .add('With header', () => (
+  .addWithInfo('With header', () => (
     <Drawer open={false} header={<p>A header</p>}>
       <Menu>
         <MenuItem>Item 1</MenuItem>
