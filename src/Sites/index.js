@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
+import styled from 'styled-components';
 import Icon from '../Icon';
 import Popover from '../Popover';
-import styles from './style.scss';
 
 const sites = [
   {
@@ -26,6 +26,33 @@ const sites = [
   }
 ];
 
+const Site = styled.div`
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+
+  &:hover{
+    border: 1px solid rgba(#777, 0.25);
+  }
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  color: #777;
+`;
+
+const Span = styled.span`
+  height: 35px;
+  width: 100%;
+  display: block;
+  margin-bottom: 5px;
+`;
+
 const Sites = ({ className, popoverClassName }) => (
   <Popover
     className={popoverClassName}
@@ -37,27 +64,24 @@ const Sites = ({ className, popoverClassName }) => (
     }
   >
     <div>
-      {
-        sites.map(site => (
-          <div className={styles.site} key={site.name}>
-            <a
-              href={site.href}
-              className={`${styles.link} ${className}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span
-                className={styles.icon}
-                style={{
-                  background: `url(${site.logo}) center center no-repeat`,
-                  backgroundSize: 'contain'
-                }}
-              />
-              {site.name}
-            </a>
-          </div>
-        ))
-      }
+      {sites.map(site => (
+        <Site key={site.name}>
+          <Link
+            href={site.href}
+            className={className}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Span
+              style={{
+                background: `url(${site.logo}) center center no-repeat`,
+                backgroundSize: 'contain'
+              }}
+            />
+            {site.name}
+          </Link>
+        </Site>
+      ))}
     </div>
   </Popover>
 );

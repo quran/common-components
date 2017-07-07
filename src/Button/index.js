@@ -1,30 +1,88 @@
 import React, { PropTypes } from 'react';
-import cx from 'classnames';
-import styles from './style.scss';
+import styled, { css } from 'styled-components';
 
-function Button({ className, color, children, href, ...props }) {
-  const buttonType = color && styles[color];
+const inverted = css`
+  background: white;
+  border-color: ${props => props.theme.brandPrimary || '#2CA4AB'};
+  color: ${props => props.theme.brandPrimary || '#2CA4AB'};
+  &:hover {
+    color: white;
+    background-color: ${props => props.theme.brandPrimary || '#2CA4AB'};
+    border-color: white;
+  }
+`;
 
-  if (href) {
-    const attributes = props.disabled && { onClick: (event) => { event.preventDefault(); } };
-    const classnames = cx(styles.quranLink, className, buttonType, { [styles.disabled]: props.disabled, [styles.square]: props.square }); // eslint-disable-line
-    return (
-      <a
-        href={href}
-        className={classnames}
-        {...props}
-        {...attributes}
-      >{children}</a>);
+const disabled = css`
+  background-color: #ccc;
+  color: #6a6a6a;
+  cursor: not-allowed;
+`;
+
+const StyledBase = styled.button`
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  width: 220px;
+  height: 40px;
+  border-radius: ${props => (props.square ? 0 : '50px')};
+  border: 2px solid white;
+  color: white;
+  background-color: ${props => props.theme.brandPrimary || '#2CA4AB'};
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+
+  &:hover {
+    text-decoration: none;
+    color: ${props => props.theme.brandPrimary || '#2CA4AB'};
+    border-color: ${props => props.theme.brandPrimary || '#2CA4AB'};
+    background-color: white;
   }
 
-  const classnames = cx(styles.quranButton, className, buttonType, { [styles.square]: props.square }); // eslint-disable-line
+  &:disabled {
+    ${disabled}
+  }
+
+  ${props => (props.color === 'inverted' ? inverted : '')}
+  ${props => (props.disabled ? disabled : '')}
+`;
+
+const StyledLink = StyledBase.withComponent('a').extend`
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+`;
+
+function Button({ className, color, children, href, ...props }) {
+  if (href) {
+    const attributes = props.disabled && {
+      onClick: (event) => {
+        event.preventDefault();
+      }
+    };
+
+    return (
+      <StyledLink
+        href={href}
+        className={className}
+        color={color}
+        {...props}
+        {...attributes}
+      >
+        {children}
+      </StyledLink>
+    );
+  }
 
   return (
-    <button
-      className={classnames}
-      {...props}
-    > {children}
-    </button>
+    <StyledBase className={className} color={color} {...props}>
+      {children}
+    </StyledBase>
   );
 }
 
@@ -39,7 +97,7 @@ Button.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
     PropTypes.string
-  ]).isRequired,
+  ]).isRequired
 };
 
 Button.defaultProps = {
