@@ -1,20 +1,92 @@
 /* global document */
 import React, { PropTypes, Component } from 'react';
-import styles from './style.scss';
+import styled, { css } from 'styled-components';
 
 import Icon from '../Icon';
+
+const width = 350;
+
+const rightSide = css`
+  right: ${width * -1}px;
+  left: initial;
+  transition: right 0.35s cubic-bezier(0.24,1,0.32,1), visibility 0.2s;
+
+  ${props => (props.open ? 'left: initial; right: 0px;' : '')}
+`;
+
+const Container = styled.div`
+  position: fixed;
+  left: ${width * -1}px;
+  top: 0px;
+  bottom: 0px;
+  background: #fff;
+  z-index: 1031;
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
+  visibility: hidden;
+
+  background: #fff;
+  width: ${width}px;
+  transition: left 0.35s cubic-bezier(0.24,1,0.32,1), visibility 0.2s;
+  overflow: auto;
+  height: 100%;
+
+  .navbar-text{
+    margin-left: 0px;
+      .backToHome {
+        margin-right: 23px;
+        font-size: 17px;
+      }
+  }
+
+  ${props => (props.open ? 'left: 0px; visibility: visible;' : '')}
+
+  ${props => (props.right ? rightSide : '')}
+
+  @media(max-width: 768px) {
+    width: ${width}px;
+    left: ${width * -1}px;
+
+    .navbar-text{
+      padding-left: 15px;
+    }
+  }
+`;
+
+const Header = styled.div`
+  height: 50px;
+`;
+
+const HeaderText = styled.div`
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  padding-left: 10px;
+`;
+
+const CloseButton = styled(Icon)`
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 class Drawer extends Component {
   state = {
     open: this.props.open || false
-  }
+  };
 
   componentDidMount() {
     document.body.addEventListener('click', this.onBodyClick.bind(this), true);
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('click', this.onBodyClick.bind(this), true);
+    document.body.removeEventListener(
+      'click',
+      this.onBodyClick.bind(this),
+      true
+    );
   }
 
   onBodyClick = (event) => {
@@ -29,22 +101,25 @@ class Drawer extends Component {
     }
 
     return false;
-  }
+  };
 
   onToggleClick = () => {
     this.setOpen(!this.getOpen());
-  }
+  };
 
   onCloseClick = () => {
     this.setOpen(false);
-  }
+  };
 
   getOpen() {
     return this.props.handleOpen ? this.props.open : this.state.open;
   }
 
+  // eslint-disable-next-line
   setOpen(open) {
-    return this.props.handleOpen ? this.props.handleOpen(open) : this.setState({ open });
+    return this.props.handleOpen
+      ? this.props.handleOpen(open)
+      : this.setState({ open });
   }
 
   renderToggle() {
@@ -65,16 +140,12 @@ class Drawer extends Component {
     const { header } = this.props;
 
     return (
-      <div className={styles.header}>
-        <div className={header && styles.headerText}>
+      <Header>
+        <HeaderText>
           {header}
-          <Icon
-            className={`${styles.closeBtn}`}
-            type="delete"
-            onClick={this.onCloseClick}
-          />
-        </div>
-      </div>
+          <CloseButton type="delete" onClick={this.onCloseClick} />
+        </HeaderText>
+      </Header>
     );
   }
 
@@ -84,13 +155,17 @@ class Drawer extends Component {
     return (
       <div>
         {this.renderToggle()}
-        <div
-          className={`${styles.container} sidebar ${this.getOpen() && styles.open} ${right && styles.right}`}
-          ref={(ref) => { this.content = ref; }}
+        <Container
+          open={this.getOpen()}
+          right={right}
+          className={'sidebar'}
+          ref={(ref) => {
+            this.content = ref;
+          }}
         >
           {this.renderHeader()}
           {children}
-        </div>
+        </Container>
       </div>
     );
   }

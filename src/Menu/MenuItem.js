@@ -1,12 +1,44 @@
 import React, { PropTypes, Component } from 'react';
 import Link from 'react-router/lib/Link';
+import styled from 'styled-components';
 import Icon from '../Icon';
-import styles from './style.scss';
+
+const Item = styled.li`
+  color: #777;
+  list-style-type: none;
+
+  ${props => (props.divider ? 'border-top: 1px solid #c4c4c4;' : '')}
+`;
+
+const Menu = styled.div`
+  height: ${props => (props.open ? 'auto' : 0)};
+  transition: 0.5s height;
+  overflow: hidden;
+`;
+
+const StyledIcon = styled(Icon)`
+  position: absolute;
+  right: 15px;
+`;
+
+const StyledLink = styled.div`
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #777;
+  display: block;
+  cursor: pointer;
+  position: relative;
+
+  &:hover{
+    background: #f5f5f5;
+    color: #333;
+  }
+`;
 
 class MenuItem extends Component {
   state = {
     menuOpen: false
-  }
+  };
 
   handleClick = (event) => {
     const { onClick, menu } = this.props;
@@ -16,38 +48,44 @@ class MenuItem extends Component {
     }
 
     return onClick && onClick(event);
-  }
+  };
 
   render() {
-    const { children, icon, href, className, divider, menu, onClick, checkbox, ...props } = this.props; // eslint-disable-line
-    const Type = href ? Link : 'div';
+    const {
+      children,
+      icon,
+      href,
+      className,
+      divider,
+      menu,
+      onClick, // eslint-disable-line
+      ...props
+    } = this.props;
+    const Type = href ? StyledLink.withComponent(Link) : StyledLink;
 
     return (
-      <li className={`${styles.item} ${className} ${divider && styles.divider}`}>
-        {
-          children &&
-          <Type href={href} className={styles.link} onClick={this.handleClick} {...props}>
-            {icon && <span className={styles.icon}>{icon}</span>}
+      <Item className={className} divider={divider}>
+        {children &&
+          <Type href={href} onClick={this.handleClick} {...props}>
+            {icon && <span style={{ marginRight: 16 }}>{icon}</span>}
             {children}
-            {
-              menu &&
-              <Icon type={this.state.menuOpen ? 'directup' : 'dropdown'} className={styles.menuIcon} />
-            }
-          </Type>
-        }
-        {
-          menu &&
-          <div className={`${styles.menu} ${this.state.menuOpen && styles.menuOpen}`}>
+            {menu &&
+              <StyledIcon
+                type={this.state.menuOpen ? 'directup' : 'dropdown'}
+              />}
+          </Type>}
+        {menu &&
+          <Menu open={this.state.menuOpen}>
             {menu}
-          </div>
-        }
-      </li>
+          </Menu>}
+      </Item>
     );
   }
 }
 
 MenuItem.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
+    .isRequired,
   icon: PropTypes.element,
   href: PropTypes.string,
   className: PropTypes.string,

@@ -1,6 +1,28 @@
 /* global window */
 import React, { PropTypes, Component } from 'react';
-import styles from './style.scss';
+import styled, { css } from 'styled-components';
+
+const Fixed = css`
+  position: Fixed;
+  left: 0px;
+  right: 0px;
+`;
+
+const Scrolled = css`
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
+`;
+
+const Nav = styled.nav`
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  height: 50px;
+
+  ${props => (props.fixed ? Fixed : '')}
+  ${props => (props.scrolled ? Scrolled : '')}
+`;
+
+const Container = styled.div`
+  padding: 0 15px;
+`;
 
 export { default as NavItem } from './NavItem.js';
 
@@ -9,17 +31,17 @@ class Navbar extends Component {
     children: PropTypes.arrayOf(PropTypes.element),
     fixed: PropTypes.bool,
     className: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     fixed: false,
     children: [],
     className: ''
-  }
+  };
 
   state = {
     scrolled: false
-  }
+  };
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleNavbar, true);
@@ -42,17 +64,17 @@ class Navbar extends Component {
     }
 
     return false;
-  }
+  };
 
   render() {
     const { children, fixed, className } = this.props;
 
     return (
-      <nav className={`${styles.nav} ${fixed && styles.fixed} ${this.state.scrolled && styles.scrolled} ${className}`}>
-        <div className={styles.container}>
+      <Nav fixed={fixed} scrolled={this.state.scrolled} className={className}>
+        <Container>
           {children}
-        </div>
-      </nav>
+        </Container>
+      </Nav>
     );
   }
 }

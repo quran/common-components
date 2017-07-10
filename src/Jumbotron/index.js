@@ -1,15 +1,25 @@
 import React, { PropTypes } from 'react';
-import styles from './style.scss';
+import styled from 'styled-components';
 import backgroundImage from '../images/background.jpg';
 
+const Container = styled.div`
+  text-align: center;
+  background-color: ${props => props.theme.brandPrimary || '#2CA4AB'};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1rem 0rem;
+  color: #fff;
+`;
+
 const Jumbotron = ({ children, className, style, ...props }) => (
-  <div
-    className={`${styles.container} ${className}`}
+  <Container
+    className={className}
     style={{ backgroundImage: `url(${backgroundImage})`, ...style }}
     {...props}
   >
     {children}
-  </div>
+  </Container>
 );
 
 Jumbotron.defaultProps = {
