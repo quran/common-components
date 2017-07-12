@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import Link from 'react-router/lib/Link';
 import styled from 'styled-components';
 import Icon from '../Icon';
 
@@ -58,10 +57,11 @@ class MenuItem extends Component {
       className,
       divider,
       menu,
+      component, // eslint-disable-line
       onClick, // eslint-disable-line
       ...props
     } = this.props;
-    const Type = href ? StyledLink.withComponent(Link) : StyledLink;
+    const Type = component ? StyledLink.withComponent(component) : StyledLink;
 
     return (
       <Item className={className} divider={divider}>
