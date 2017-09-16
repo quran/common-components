@@ -153,15 +153,16 @@ class Drawer extends Component {
     const { children, right } = this.props;
 
     return (
-      <div>
+      <div
+        ref={(ref) => {
+          this.content = ref;
+        }}
+      >
         {this.renderToggle()}
         <Container
           open={this.getOpen()}
           right={right}
           className={'sidebar'}
-          ref={(ref) => {
-            this.content = ref;
-          }}
         >
           {this.renderHeader()}
           {children}
