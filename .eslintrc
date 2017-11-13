@@ -8,6 +8,8 @@
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "strict": 0,
+    " no-confusing-arrow": 0,
+    "react/react-in-jsx-scope": 0,
     "no-multi-assign": 0
   },
   "ecmaFeatures": {

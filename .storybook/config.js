@@ -1,14 +1,6 @@
 import { configure, setAddon } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
-import infoAddon from '@storybook/addon-info';
-
-const req = require.context('../src', true, /.stories.js$/)
-
-setAddon(infoAddon);
-
-function loadStories() {
-  req.keys().forEach((filename) => req(filename))
-}
+// import infoAddon from '@storybook/addon-info';
 
 setOptions({
   name: 'Common Components',
@@ -20,5 +12,15 @@ setOptions({
   downPanelInRight: false,
   sortStoriesByKind: true,
 });
+
+const req = require.context('../src', true, /button.stories.js$/)
+
+// setAddon(infoAddon);
+
+function loadStories() {
+  req.keys().forEach((filename) => req(filename))
+}
+
+
 
 configure(loadStories, module);

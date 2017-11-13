@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const size = 20;
@@ -16,7 +16,7 @@ const Label = styled.label`
     -webkit-transform: scale(0.5);
     -ms-transform: scale(0.5);
     transform: scale(0.5);
-    opacity: .5;
+    opacity: 0.5;
   }
 
   & .input {
@@ -93,7 +93,7 @@ Radio.propTypes = {
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
 
 export default Radio;

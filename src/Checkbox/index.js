@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Label = styled.label`
@@ -45,8 +45,9 @@ const Input = styled.input`
   &:checked {
     background-color: ${props => props.theme.brandPrimary || '#2CA4AB'};
     border: 1px solid #adb8c0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-    color: #FFF;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+      inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    color: #fff;
     &:active {
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), inset 0px 1px 2px rgba(0, 0, 0, 0.1);
     }
@@ -56,7 +57,7 @@ const Input = styled.input`
       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 1px rgba(0, 126, 255, 0.1);
     }
     &:after {
-      content: "✔";
+      content: '✔';
       font-size: 12px;
       margin: 0.1em 0 0.1em 0;
       line-height: 1.5em;
@@ -68,15 +69,7 @@ const Input = styled.input`
   }
 `;
 
-const Checkbox = ({
-  id,
-  name,
-  checked,
-  className,
-  handleChange,
-  children,
-  ...props
-}) => (
+const Checkbox = ({ id, name, checked, className, handleChange, children, ...props }) => (
   <Label htmlFor={id}>
     <Input
       id={id}
@@ -98,12 +91,12 @@ Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
   className: '',
-  disabled: false
+  disabled: false,
 };
 
 export default Checkbox;

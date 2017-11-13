@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 const LoaderIcon = styled.div`
@@ -49,11 +50,14 @@ const LoaderIcon = styled.div`
     }
   }
 
-  ${props => (props.relative ? `
+  ${props =>
+    props.relative
+      ? `
     position: relative;
     top: initial;
     left: initial;
-  ` : '')}
+  `
+      : ''};
 `;
 
 const Active = styled.div`
@@ -70,10 +74,11 @@ const Active = styled.div`
 const Loader = ({ children, isActive, className, relative, ...props }) => (
   <div>
     {isActive && !relative && <Active />}
-    {isActive &&
+    {isActive && (
       <LoaderIcon relative={relative} className={className} {...props}>
         Loading...
-      </LoaderIcon>}
+      </LoaderIcon>
+    )}
     {children}
   </div>
 );
@@ -83,18 +88,18 @@ Loader.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
-    PropTypes.string
+    PropTypes.string,
   ]).isRequired,
   isActive: PropTypes.bool.isRequired,
   relative: PropTypes.bool.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 Loader.defaultProps = {
   isActive: false,
   relative: false,
   className: '',
-  children: []
+  children: [],
 };
 
 export default Loader;

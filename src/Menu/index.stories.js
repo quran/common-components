@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Menu, { MenuItem } from './index';
 import Icon from '../Icon';
 import Checkbox from '../Checkbox';
@@ -63,17 +64,32 @@ storiesOf('Menu', module)
   .addWithInfo('checkboxes', () => (
     <Menu>
       <MenuItem>
-        <Checkbox key="translation1" id="translation¡" name="type1" handleChange={action('translation')}>
+        <Checkbox
+          key="translation1"
+          id="translation¡"
+          name="type1"
+          handleChange={action('translation')}
+        >
           translation
         </Checkbox>
       </MenuItem>
       <MenuItem>
-        <Checkbox key="translation2" id="translation2" name="type2" handleChange={action('translation')}>
+        <Checkbox
+          key="translation2"
+          id="translation2"
+          name="type2"
+          handleChange={action('translation')}
+        >
           translation
         </Checkbox>
       </MenuItem>
       <MenuItem>
-        <Checkbox key="translation3" id="translation3" name="type3" handleChange={action('translation')}>
+        <Checkbox
+          key="translation3"
+          id="translation3"
+          name="type3"
+          handleChange={action('translation')}
+        >
           translation
         </Checkbox>
       </MenuItem>
@@ -81,15 +97,13 @@ storiesOf('Menu', module)
   ))
   .addWithInfo('radio', () => (
     <Menu>
-      {
-        ['translation', 'transliteration'].map(type => (
-          <MenuItem>
-            <Radio key={type} id={type} name="type" handleChange={action(type)}>
-              {type.toUpperCase()}
-            </Radio>
-          </MenuItem>
-        ))
-      }
+      {['translation', 'transliteration'].map(type => (
+        <MenuItem>
+          <Radio key={type} id={type} name="type" handleChange={action(type)}>
+            {type.toUpperCase()}
+          </Radio>
+        </MenuItem>
+      ))}
     </Menu>
   ))
   .addWithInfo('large', 'Menu with all the checkboxes, radios and menu dropdowns', () => (
@@ -109,28 +123,41 @@ storiesOf('Menu', module)
         Item 3
       </MenuItem>
       <MenuItem divider />
-      {
-        ['Translation', 'Transliteration'].map(type => (
-          <MenuItem>
-            <Radio key={type} id={type} name="type" handleChange={action(type)}>
-              {type}
-            </Radio>
-          </MenuItem>
-        ))
-      }
+      {['Translation', 'Transliteration'].map(type => (
+        <MenuItem>
+          <Radio key={type} id={type} name="type" handleChange={action(type)}>
+            {type}
+          </Radio>
+        </MenuItem>
+      ))}
       <MenuItem divider />
       <MenuItem>
-        <Checkbox key="translation1" id="translation¡" name="type1" handleChange={action('translation')}>
+        <Checkbox
+          key="translation1"
+          id="translation¡"
+          name="type1"
+          handleChange={action('translation')}
+        >
           translation
         </Checkbox>
       </MenuItem>
       <MenuItem>
-        <Checkbox key="translation2" id="translation2" name="type2" handleChange={action('translation')}>
+        <Checkbox
+          key="translation2"
+          id="translation2"
+          name="type2"
+          handleChange={action('translation')}
+        >
           translation
         </Checkbox>
       </MenuItem>
       <MenuItem>
-        <Checkbox key="translation3" id="translation3" name="type3" handleChange={action('translation')}>
+        <Checkbox
+          key="translation3"
+          id="translation3"
+          name="type3"
+          handleChange={action('translation')}
+        >
           translation
         </Checkbox>
       </MenuItem>

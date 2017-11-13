@@ -9,11 +9,11 @@
 module.exports = {
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: 'eslint-loader',
-        exclude: /node_modules/
-      },
+      // {
+      //   test: /\.js$/,
+      //   use: 'eslint-loader',
+      //   exclude: /node_modules/
+      // },
       {
         test: /\.jpg$/,
         use: 'url-loader?limit=8192&name=[name].[ext]'
