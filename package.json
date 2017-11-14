@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "start-storybook -p 6006",
+    "test" : "echo 'add tests'",
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "prebuild": "rimraf ./lib",
