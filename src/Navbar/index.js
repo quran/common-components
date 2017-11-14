@@ -4,6 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
+export { default as NavItem } from './NavItem';
+
 const Fixed = css`
   position: Fixed;
   left: 0px;
@@ -22,9 +24,9 @@ const Nav = styled.nav`
   ${props => (props.fixed ? Fixed : '')} ${props => (props.scrolled ? Scrolled : '')};
 `;
 
-const Container = styled.div`padding: 0 15px;`;
-
-export { default as NavItem } from './NavItem.js';
+const Container = styled.div`
+  padding: 0 15px;
+`;
 
 class Navbar extends React.Component {
   static propTypes = {

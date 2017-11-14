@@ -42,7 +42,7 @@ const Container = styled.div`
   }
 
   ${props => (props.open ? 'left: 0px; visibility: visible;' : '')} ${props =>
-      props.right ? rightSide : ''} @media(max-width: 768px) {
+      (props.right ? rightSide : '')} @media(max-width: 768px) {
     width: ${width}px;
     left: ${width * -1}px;
 

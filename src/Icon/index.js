@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import types from './types';
 
+
 const I = styled.i`
   // SS Standard documentation: https://romancandletours.com/assets/css/ss-standard/documentation.html
   @font-face {

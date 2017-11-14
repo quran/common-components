@@ -1,5 +1,5 @@
 /* global document */
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TetherComponent from 'react-tether';

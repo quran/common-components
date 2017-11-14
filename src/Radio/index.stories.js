@@ -3,8 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Radio from './index';
 
+import { withInfo } from '@storybook/addon-info';
+
 storiesOf('Radio', module)
-  .addWithInfo('with text', () => (
+  .add('with text', withInfo('with text')(() => (
     <div>
       {['translation', 'transliteration'].map(type => (
         <Radio key={type} id={type} name="type" handleChange={() => action(type)}>
@@ -12,8 +14,8 @@ storiesOf('Radio', module)
         </Radio>
       ))}
     </div>
-  ))
-  .addWithInfo('default checked', () => (
+  )))
+  .add('default checked', withInfo('default checked')(() => (
     <div>
       {['translation', 'transliteration'].map(type => (
         <Radio
@@ -27,4 +29,4 @@ storiesOf('Radio', module)
         </Radio>
       ))}
     </div>
-  ));
+  )));

@@ -13,14 +13,12 @@ setOptions({
   sortStoriesByKind: true,
 });
 
-const req = require.context('../src', true, /button.stories.js$/)
+const req = require.context('../src', true, /.stories.js$/);
 
 // setAddon(infoAddon);
 
 function loadStories() {
-  req.keys().forEach((filename) => req(filename))
+  req.keys().forEach(filename => req(filename));
 }
-
-
 
 configure(loadStories, module);

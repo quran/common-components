@@ -6,44 +6,46 @@ import Icon from '../Icon';
 import Checkbox from '../Checkbox';
 import Radio from '../Radio';
 
+import { withInfo } from '@storybook/addon-info';
+
 storiesOf('Menu', module)
-  .addWithInfo('default', 'Basic usage of the menu', () => (
+  .add('default', withInfo('Basic usage of the menu')(() => (
     <Menu>
       <MenuItem>Item 1</MenuItem>
       <MenuItem>Item 2</MenuItem>
       <MenuItem>Item 3</MenuItem>
     </Menu>
-  ))
-  .addWithInfo('bordered', () => (
+  )))
+  .add('bordered', withInfo('bordered')(() => (
     <Menu bordered>
       <MenuItem>Item 1</MenuItem>
       <MenuItem>Item 2</MenuItem>
       <MenuItem>Item 3</MenuItem>
     </Menu>
-  ))
-  .addWithInfo('divider', () => (
+  )))
+  .add('divider', withInfo('divider')(() => (
     <Menu>
       <MenuItem>Item 1</MenuItem>
       <MenuItem divider />
       <MenuItem>Item 2</MenuItem>
       <MenuItem>Item 3</MenuItem>
     </Menu>
-  ))
-  .addWithInfo('with icons', () => (
+  )))
+  .add('with icons', withInfo('with icons')(() => (
     <Menu>
       <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
       <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
       <MenuItem icon={<Icon type="calendar" />}>Item 3</MenuItem>
     </Menu>
-  ))
-  .addWithInfo('on click', () => (
+  )))
+  .add('on click', withInfo('on click')(() => (
     <Menu>
       <MenuItem onClick={action('clicked')}>Item 1</MenuItem>
       <MenuItem onClick={action('clicked')}>Item 2</MenuItem>
       <MenuItem onClick={action('clicked')}>Item 3</MenuItem>
     </Menu>
-  ))
-  .addWithInfo('menu inside menu', () => (
+  )))
+  .add('menu inside menu', withInfo('menu inside menu')(() => (
     <Menu>
       <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
       <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
@@ -60,8 +62,8 @@ storiesOf('Menu', module)
         Item 3
       </MenuItem>
     </Menu>
-  ))
-  .addWithInfo('checkboxes', () => (
+  )))
+  .add('checkboxes', withInfo('checkboxes')(() => (
     <Menu>
       <MenuItem>
         <Checkbox
@@ -94,8 +96,8 @@ storiesOf('Menu', module)
         </Checkbox>
       </MenuItem>
     </Menu>
-  ))
-  .addWithInfo('radio', () => (
+  )))
+  .add('radio', withInfo('radio')(() => (
     <Menu>
       {['translation', 'transliteration'].map(type => (
         <MenuItem>
@@ -105,8 +107,10 @@ storiesOf('Menu', module)
         </MenuItem>
       ))}
     </Menu>
-  ))
-  .addWithInfo('large', 'Menu with all the checkboxes, radios and menu dropdowns', () => (
+  )))
+  .add(
+  'large',
+  withInfo('Menu with all the checkboxes, radios and menu dropdowns')(() => (
     <Menu>
       <MenuItem icon={<Icon type="calendar" />}>Item 1</MenuItem>
       <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
@@ -118,10 +122,10 @@ storiesOf('Menu', module)
             <MenuItem icon={<Icon type="calendar" />}>Item 2</MenuItem>
             <MenuItem icon={<Icon type="calendar" />}>Item 3</MenuItem>
           </Menu>
-        }
+          }
       >
-        Item 3
-      </MenuItem>
+          Item 3
+        </MenuItem>
       <MenuItem divider />
       {['Translation', 'Transliteration'].map(type => (
         <MenuItem>
@@ -129,7 +133,7 @@ storiesOf('Menu', module)
             {type}
           </Radio>
         </MenuItem>
-      ))}
+        ))}
       <MenuItem divider />
       <MenuItem>
         <Checkbox
@@ -138,8 +142,8 @@ storiesOf('Menu', module)
           name="type1"
           handleChange={action('translation')}
         >
-          translation
-        </Checkbox>
+            translation
+          </Checkbox>
       </MenuItem>
       <MenuItem>
         <Checkbox
@@ -148,8 +152,8 @@ storiesOf('Menu', module)
           name="type2"
           handleChange={action('translation')}
         >
-          translation
-        </Checkbox>
+            translation
+          </Checkbox>
       </MenuItem>
       <MenuItem>
         <Checkbox
@@ -158,8 +162,9 @@ storiesOf('Menu', module)
           name="type3"
           handleChange={action('translation')}
         >
-          translation
-        </Checkbox>
+            translation
+          </Checkbox>
       </MenuItem>
     </Menu>
-  ));
+    ))
+);

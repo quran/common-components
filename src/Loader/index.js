@@ -51,13 +51,13 @@ const LoaderIcon = styled.div`
   }
 
   ${props =>
-    props.relative
+    (props.relative
       ? `
     position: relative;
     top: initial;
     left: initial;
   `
-      : ''};
+      : '')};
 `;
 
 const Active = styled.div`
@@ -94,6 +94,7 @@ Loader.propTypes = {
   relative: PropTypes.bool.isRequired,
   className: PropTypes.string,
 };
+
 
 Loader.defaultProps = {
   isActive: false,
