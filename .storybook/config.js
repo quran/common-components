@@ -1,6 +1,5 @@
 import { configure, setAddon } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
-// import infoAddon from '@storybook/addon-info';
 
 setOptions({
   name: 'Common Components',
@@ -14,8 +13,6 @@ setOptions({
 });
 
 const req = require.context('../src', true, /.stories.js$/);
-
-// setAddon(infoAddon);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
