@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import Icon from '../Icon';
 import Popover from '../Popover';
@@ -7,23 +8,23 @@ const sites = [
   {
     name: 'Quran',
     logo: '//assets-1f14.kxcdn.com/images/logo-lg.png',
-    href: 'https://quran.com'
+    href: 'https://quran.com',
   },
   {
     name: 'Audio',
     logo: 'https://raw.githubusercontent.com/quran/audio.quran.com/master/static/favicon.ico',
-    href: 'https://quranicaudio.com'
+    href: 'https://quranicaudio.com',
   },
   {
     name: 'Salah',
     logo: 'http://salah.com/images/favicon.png',
-    href: 'http://salah.com'
+    href: 'http://salah.com',
   },
   {
     name: 'Sunnah',
     logo: 'https://sunnah.com/favicon.ico',
-    href: 'https://sunnah.com'
-  }
+    href: 'https://sunnah.com',
+  },
 ];
 
 const Site = styled.div`
@@ -34,7 +35,7 @@ const Site = styled.div`
   border-radius: 2px;
   box-sizing: border-box;
 
-  &:hover{
+  &:hover {
     border: 1px solid rgba(#777, 0.25);
   }
 `;
@@ -66,16 +67,11 @@ const Sites = ({ className, popoverClassName }) => (
     <div>
       {sites.map(site => (
         <Site key={site.name}>
-          <Link
-            href={site.href}
-            className={className}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href={site.href} className={className} target="_blank" rel="noopener noreferrer">
             <Span
               style={{
                 background: `url(${site.logo}) center center no-repeat`,
-                backgroundSize: 'contain'
+                backgroundSize: 'contain',
               }}
             />
             {site.name}
@@ -88,12 +84,12 @@ const Sites = ({ className, popoverClassName }) => (
 
 Sites.propTypes = {
   className: PropTypes.string,
-  popoverClassName: PropTypes.string
+  popoverClassName: PropTypes.string,
 };
 
 Sites.defaultProps = {
   className: '',
-  popoverClassName: ''
+  popoverClassName: '',
 };
 
 export default Sites;

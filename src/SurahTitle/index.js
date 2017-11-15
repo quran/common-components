@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 const SurahTitle = ({ chapterNumber, color, className, ...props }) => {
   const SurahSvg = require(`./Surahs/${chapterNumber}.js`).default; // eslint-disable-line
@@ -8,14 +8,13 @@ const SurahTitle = ({ chapterNumber, color, className, ...props }) => {
 SurahTitle.defaultProps = {
   color: '#000000',
   className: '',
-  chapterNumber: 1
+  chapterNumber: 1,
 };
 
 SurahTitle.propTypes = {
   chapterNumber: PropTypes.number.isRequired,
   color: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
-
 
 export default SurahTitle;

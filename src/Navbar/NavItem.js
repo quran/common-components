@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const List = styled.ul`
@@ -17,19 +18,21 @@ const List = styled.ul`
 `;
 
 const NavItem = ({ children, className, right }) => (
-  <List right={right} className={className}>{children}</List>
+  <List right={right} className={className}>
+    {children}
+  </List>
 );
 
 NavItem.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
   className: PropTypes.string,
-  right: PropTypes.boolean
+  right: PropTypes.boolean,
 };
 
 NavItem.defaultProps = {
   children: [],
   className: '',
-  right: false
+  right: false,
 };
 
 export default NavItem;

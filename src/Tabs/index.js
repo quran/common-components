@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export { default as Tab } from './Tab';
@@ -19,7 +20,7 @@ const List = styled.ul`
       color: ${props => props.theme.brandPrimary || '#2CA4AB'};
       font-size: 1.15rem;
 
-      &:hover{
+      &:hover {
         background: #f1f1f1;
       }
     }
@@ -28,7 +29,7 @@ const List = styled.ul`
 
 const Underline = styled.hr`
   border-color: ${props => props.theme.brandPrimary || '#2CA4AB'};
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   margin-left: 0px;
   margin-top: 0px;
 `;
@@ -42,17 +43,17 @@ class Tabs extends Component {
       PropTypes.arrayOf(PropTypes.element),
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
-      PropTypes.string
-    ]).isRequired
+      PropTypes.string,
+    ]).isRequired,
   };
 
   static defaultProps = {
     className: '',
-    selected: 0
+    selected: 0,
   };
 
   state = {
-    selected: this.props.selected
+    selected: this.props.selected,
   };
 
   handleTabClick(selected) {
@@ -73,11 +74,7 @@ class Tabs extends Component {
         <List>
           {this.props.children.map((child, index) => (
             <li key={`index-${index + 1}`}>
-              <a
-                tabIndex={index + 1}
-                onClick={() => this.handleTabClick(index)}
-                style={{ width }}
-              >
+              <a tabIndex={index + 1} onClick={() => this.handleTabClick(index)} style={{ width }}>
                 {child.props.title}
               </a>
             </li>
@@ -85,9 +82,7 @@ class Tabs extends Component {
           <Underline style={{ width, marginLeft }} />
         </List>
 
-        <div>
-          {children[this.state.selected]}
-        </div>
+        <div>{children[this.state.selected]}</div>
       </div>
     );
   }
