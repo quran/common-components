@@ -3,7 +3,7 @@ dependencies:
   cache_directories:
     - ~/.cache/yarn
   override:
-    - yarn
+    - yarn install --pure-lockfile
   pre:
     - ls
     - "sh login.sh"
