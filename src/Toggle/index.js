@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const height = 25;

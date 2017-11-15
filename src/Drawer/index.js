@@ -1,5 +1,7 @@
 /* global document */
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import styled, { css } from 'styled-components';
 
 import Icon from '../Icon';
@@ -9,11 +11,11 @@ const width = 350;
 const rightSide = css`
   right: ${width * -1}px;
   left: initial;
-  transition: right 0.35s cubic-bezier(0.24,1,0.32,1), visibility 0.2s;
+  transition: right 0.35s cubic-bezier(0.24, 1, 0.32, 1), visibility 0.2s;
 
-  ${props => (props.open ? 'left: initial; right: 0px;' : '')}
+  ${props => (props.open ? 'left: initial; right: 0px;' : '')};
 `;
-
+// eslint-disable-next-line no-confusing-arrow
 const Container = styled.div`
   position: fixed;
   left: ${width * -1}px;
@@ -21,43 +23,39 @@ const Container = styled.div`
   bottom: 0px;
   background: #fff;
   z-index: 1031;
-  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12),
+    0 8px 10px -5px rgba(0, 0, 0, 0.2);
   visibility: hidden;
 
   background: #fff;
   width: ${width}px;
-  transition: left 0.35s cubic-bezier(0.24,1,0.32,1), visibility 0.2s;
+  transition: left 0.35s cubic-bezier(0.24, 1, 0.32, 1), visibility 0.2s;
   overflow: auto;
   height: 100%;
 
-  .navbar-text{
+  .navbar-text {
     margin-left: 0px;
-      .backToHome {
-        margin-right: 23px;
-        font-size: 17px;
-      }
+    .backToHome {
+      margin-right: 23px;
+      font-size: 17px;
+    }
   }
 
-  ${props => (props.open ? 'left: 0px; visibility: visible;' : '')}
-
-  ${props => (props.right ? rightSide : '')}
-
-  @media(max-width: 768px) {
+  ${props => (props.open ? 'left: 0px; visibility: visible;' : '')} ${props =>
+      (props.right ? rightSide : '')} @media(max-width: 768px) {
     width: ${width}px;
     left: ${width * -1}px;
 
-    .navbar-text{
+    .navbar-text {
       padding-left: 15px;
     }
   }
 `;
 
-const Header = styled.div`
-  height: 50px;
-`;
+const Header = styled.div`height: 50px;`;
 
 const HeaderText = styled.div`
-  border-bottom: 1px solid rgba(0,0,0,0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   padding-left: 10px;
 `;
 
@@ -74,7 +72,7 @@ const CloseButton = styled(Icon)`
 
 class Drawer extends Component {
   state = {
-    open: this.props.open || false
+    open: this.props.open || false,
   };
 
   componentDidMount() {
@@ -82,11 +80,7 @@ class Drawer extends Component {
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener(
-      'click',
-      this.onBodyClick.bind(this),
-      true
-    );
+    document.body.removeEventListener('click', this.onBodyClick.bind(this), true);
   }
 
   onBodyClick = (event) => {
@@ -117,9 +111,7 @@ class Drawer extends Component {
 
   // eslint-disable-next-line
   setOpen(open) {
-    return this.props.handleOpen
-      ? this.props.handleOpen(open)
-      : this.setState({ open });
+    return this.props.handleOpen ? this.props.handleOpen(open) : this.setState({ open });
   }
 
   renderToggle() {
@@ -129,11 +121,7 @@ class Drawer extends Component {
       return React.cloneElement(toggle, { onClick: this.onToggleClick });
     }
 
-    return (
-      <button onClick={this.onToggleClick}>
-        Drawer toggle
-      </button>
-    );
+    return <button onClick={this.onToggleClick}>Drawer toggle</button>;
   }
 
   renderHeader() {
@@ -159,11 +147,7 @@ class Drawer extends Component {
         }}
       >
         {this.renderToggle()}
-        <Container
-          open={this.getOpen()}
-          right={right}
-          className={'sidebar'}
-        >
+        <Container open={this.getOpen()} right={right} className={'sidebar'}>
           {this.renderHeader()}
           {children}
         </Container>
@@ -179,7 +163,7 @@ Drawer.propTypes = {
   right: PropTypes.bool,
   toggle: PropTypes.element,
   drawerClickClose: PropTypes.bool,
-  header: PropTypes.element
+  header: PropTypes.element,
 };
 
 Drawer.defaultProps = {
@@ -187,7 +171,7 @@ Drawer.defaultProps = {
   right: false,
   drawerClickClose: true,
   toggle: null,
-  header: null
+  header: null,
 };
 
 export default Drawer;

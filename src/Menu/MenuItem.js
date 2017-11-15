@@ -1,4 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import Icon from '../Icon';
 
@@ -6,7 +8,7 @@ const Item = styled.li`
   color: #777;
   list-style-type: none;
 
-  ${props => (props.divider ? 'border-top: 1px solid #c4c4c4;' : '')}
+  ${props => (props.divider ? 'border-top: 1px solid #c4c4c4;' : '')};
 `;
 
 const Menu = styled.div`
@@ -28,7 +30,7 @@ const StyledLink = styled.div`
   cursor: pointer;
   position: relative;
 
-  &:hover{
+  &:hover {
     background: #f5f5f5;
     color: #333;
   }
@@ -36,7 +38,7 @@ const StyledLink = styled.div`
 
 class MenuItem extends Component {
   state = {
-    menuOpen: false
+    menuOpen: false,
   };
 
   handleClick = (event) => {
@@ -65,33 +67,27 @@ class MenuItem extends Component {
 
     return (
       <Item className={className} divider={divider}>
-        {children &&
+        {children && (
           <Type href={href} onClick={this.handleClick} {...props}>
             {icon && <span style={{ marginRight: 16 }}>{icon}</span>}
             {children}
-            {menu &&
-              <StyledIcon
-                type={this.state.menuOpen ? 'directup' : 'dropdown'}
-              />}
-          </Type>}
-        {menu &&
-          <Menu open={this.state.menuOpen}>
-            {menu}
-          </Menu>}
+            {menu && <StyledIcon type={this.state.menuOpen ? 'directup' : 'dropdown'} />}
+          </Type>
+        )}
+        {menu && <Menu open={this.state.menuOpen}>{menu}</Menu>}
       </Item>
     );
   }
 }
 
 MenuItem.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
-    .isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
   icon: PropTypes.element,
   href: PropTypes.string,
   className: PropTypes.string,
   divider: PropTypes.bool,
   menu: PropTypes.element,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 MenuItem.defaultProps = {
@@ -100,7 +96,7 @@ MenuItem.defaultProps = {
   className: '',
   divider: false,
   menu: null,
-  onClick: null
+  onClick: null,
 };
 
 export default MenuItem;

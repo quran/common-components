@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 const Tab = ({ title, id, children }) => (<div id={`tab-${id || String(title).replace(/\s/g, '-')}`}>{children}</div>);
 

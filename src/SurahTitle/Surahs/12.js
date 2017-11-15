@@ -1,5 +1,5 @@
 
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 const Surah11 = props => (<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 792 612" enableBackground="new 0 0 792 612" className={`ayah-name-svg ayah-name-svg__Surah11 ${props.className}`} {...props}>
   <path fill={props.color} d="M413.2,332c5-2.4,8.4-4.6,9.8-7c0-1.4-1.9-5.3-6-11.8c-4.1-7-6.7-12.5-7.4-16.1c-0.2-1-1-1.7-2.2-2.2 c-1-0.2-1.2-1-1.2-1.9l1.4-11.5c0.2-1.2,0.5-1.9,1-1.9c0.5,0,1,0.5,1.7,1l11.5,10.1c1.2,1.4,1.9,2.2,1.9,2.9c0,1.2-2.4,1.4-7,0.2 c7.2,11.5,10.8,19.2,10.8,23.5c0,14.4-4.8,23.8-14.4,27.8V332L413.2,332L413.2,332z" />
