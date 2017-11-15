@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Quran.com collection of common React UI components",
   "main": "lib/index.js",
   "repository": "git@github.com:quran/common-components.git",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "start-storybook -p 6006",
-    "test" : "echo 'add tests'",
+    "test": "echo 'add tests'",
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "prebuild": "rimraf ./lib",
