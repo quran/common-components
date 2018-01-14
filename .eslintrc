@@ -17,13 +17,11 @@
     "classes": true,
     "jsx": true
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react", "jest"],
   "settings": {
     "import/resolver": "webpack"
   },
-  "parserOptions":{
+  "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true
     }
@@ -36,13 +34,14 @@
     "__DEVTOOLS__": true,
     "socket": true,
     "webpackIsomorphicTools": true,
-    ga: true,
-    Raven: true,
-    mixpanel: true,
+    "ga": true,
+    "Raven": true,
+    "mixpanel": true,
     "expect": true,
     "browser": true,
     "FB": true,
-    sinon: true
+    "sinon": true,
+    "jest": true
   },
   "env": {
     "mocha": true,
