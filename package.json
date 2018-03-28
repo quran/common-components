@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Quran.com collection of common React UI components",
   "main": "lib/index.js",
   "repository": "git@github.com:quran/common-components.git",
@@ -21,11 +21,7 @@
     "precommit": "lint-staged",
     "prettier": "prettier --single-quote --write"
   },
-  "files": [
-    "lib",
-    "src",
-    "README.md"
-  ],
+  "files": ["lib", "src", "README.md"],
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
@@ -72,20 +68,12 @@
     "url-loader": "^0.5.8",
     "webpack": "1.13.1"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
+  "pre-commit": ["lint", "test"],
   "jest": {
     "testRegex": "^.+\\.test\\.js?$",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
+    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
     "automock": false,
-    "setupFiles": [
-      "./setupJest.js"
-    ],
+    "setupFiles": ["./setupJest.js"],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
@@ -103,10 +91,6 @@
     "styled-components": "^3.1.5"
   },
   "lint-staged": {
-    "*.js": [
-      "npm run prettier",
-      "npm run lint:fix",
-      "git add"
-    ]
+    "*.js": ["npm run prettier", "npm run lint:fix", "git add"]
   }
 }
