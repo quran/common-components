@@ -1,5 +1,3 @@
-/* global window */
-/* global document */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';

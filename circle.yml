@@ -22,7 +22,7 @@ deployment:
 
 machine:
   node:
-    version: "8.0.0"
+    version: "8.9.1"
 test:
   override:
     - "yarn test"

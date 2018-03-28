@@ -38,6 +38,8 @@
     "Raven": true,
     "mixpanel": true,
     "expect": true,
+    "document": true, 
+    "window": true, 
     "browser": true,
     "FB": true,
     "sinon": true,
