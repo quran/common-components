@@ -17,11 +17,16 @@
     "postbuild": "node utils/generateModulesList.js",
     "deploy:gp": "npm run build-storybook && gh-pages -m 'update [ci skip]' -d ./build",
     "deploy:npm": "npm run build && npm publish ./",
-    "build-storybook": "build-storybook -o ./build",
+    "build-storybook": "build-storybook",
     "precommit": "lint-staged",
-    "prettier": "prettier --single-quote --write"
+    "prettier": "prettier --single-quote --write",
+    "storybook": "start-storybook -p 6006"
   },
-  "files": ["lib", "src", "README.md"],
+  "files": [
+    "lib",
+    "src",
+    "README.md"
+  ],
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
@@ -66,14 +71,26 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.8",
-    "webpack": "1.13.1"
+    "webpack": "1.13.1",
+    "@storybook/react": "^3.4.6",
+    "@storybook/addon-actions": "^3.4.6",
+    "@storybook/addon-links": "^3.4.6",
+    "@storybook/addons": "^3.4.6"
   },
-  "pre-commit": ["lint", "test"],
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "jest": {
     "testRegex": "^.+\\.test\\.js?$",
-    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
     "automock": false,
-    "setupFiles": ["./setupJest.js"],
+    "setupFiles": [
+      "./setupJest.js"
+    ],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
@@ -91,6 +108,10 @@
     "styled-components": "^3.1.5"
   },
   "lint-staged": {
-    "*.js": ["npm run prettier", "npm run lint:fix", "git add"]
+    "*.js": [
+      "npm run prettier",
+      "npm run lint:fix",
+      "git add"
+    ]
   }
 }
