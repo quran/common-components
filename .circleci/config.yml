@@ -10,7 +10,7 @@ jobs:
         command: yarn
     - run:
         name: test & lint
-        command: npm run test && npm run lint
+        command: yarn run test && yarn run lint
   deploy:
     docker:
       - image: circleci/node:8.4.0
@@ -40,8 +40,8 @@ jobs:
     - run:
         name: deploy to npm and gh
         command: |
-            npm run deploy:npm
-            npm run deploy:gp
+            yarn run deploy:npm
+            yarn run deploy:gp
 workflows:
   version: 2
   test_and_build:
