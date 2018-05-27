@@ -7,7 +7,7 @@ jobs:
     - checkout
     - run:
         name: install
-        command: npm install --no-package-lock
+        command: yarn
     - run:
         name: test & lint
         command: npm run test && npm run lint
@@ -18,7 +18,7 @@ jobs:
     - checkout
     - run:
         name: install
-        command: npm install --no-package-lock
+        command: yarn
     - run:
         name: login to npm
         command: echo "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL"
