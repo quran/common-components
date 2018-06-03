@@ -9,7 +9,7 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "test": "NODE_ENV=test jest",
-    "lint": "eslint . --ext .js",
+    "lint": "eslint ./src, ./utils --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "prebuild": "rimraf ./lib",
     "build": "babel src --out-dir lib --copy-files --ignore test,*.stories.js --source-maps true",
@@ -22,11 +22,7 @@
     "prettier": "prettier --single-quote --write",
     "storybook": "start-storybook -p 6006"
   },
-  "files": [
-    "lib",
-    "src",
-    "README.md"
-  ],
+  "files": ["lib", "src", "README.md"],
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
@@ -43,7 +39,7 @@
     "babel-runtime": "^6.22.0",
     "classnames": "^2.2.5",
     "cross-env": "^3.1.4",
-    "css-loader": "0.23.1",
+    "css-loader": "^0.28.11",
     "css-modules-require-hook": "^4.0.5",
     "debug": "^2.6.0",
     "enzyme": "^3.3.0",
@@ -68,50 +64,34 @@
     "react-dom": "^16.1.0",
     "react-hot-loader": "3.0.0-beta.6",
     "rimraf": "^2.6.2",
-    "sass-loader": "^4.1.1",
+    "sass-loader": "^7.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.8",
-    "webpack": "1.13.1",
-    "@storybook/react": "^3.4.6",
-    "@storybook/addon-actions": "^3.4.6",
+    "webpack": "3.12.0",
+    "@storybook/addon-info": "^3.4.6",
     "@storybook/addon-links": "^3.4.6",
-    "@storybook/addons": "^3.4.6"
+    "@storybook/addon-options": "^3.4.6",
+    "@storybook/cli": "^3.4.6",
+    "@storybook/react": "^3.4.6"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
+  "pre-commit": ["lint", "test"],
   "jest": {
     "testRegex": "^.+\\.test\\.js?$",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
+    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
     "automock": false,
-    "setupFiles": [
-      "./setupJest.js"
-    ],
+    "setupFiles": ["./setupJest.js"],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
   },
   "dependencies": {
-    "@storybook/addon-info": "^3.3.11",
-    "@storybook/addon-links": "^3.3.11",
-    "@storybook/addon-options": "^3.3.11",
-    "@storybook/cli": "^3.3.11",
-    "@storybook/react": "^3.3.11",
     "prop-types": "^15.6.0",
     "react-icons": "^2.2.3",
     "react-test-renderer": "^16.1.1",
-    "react-tether": "^0.5.7",
-    "styled-components": "^3.1.5"
+    "react-tether": "^0.6.1",
+    "styled-components": "^3.3.0"
   },
   "lint-staged": {
-    "*.js": [
-      "npm run prettier",
-      "npm run lint:fix",
-      "git add"
-    ]
+    "*.js": ["npm run prettier", "npm run lint:fix", "git add"]
   }
 }
