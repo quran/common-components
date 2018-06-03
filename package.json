@@ -11,22 +11,18 @@
     "test": "NODE_ENV=test jest",
     "lint": "eslint ./src, ./utils --ext .js",
     "lint:fix": "npm run lint -- --fix",
-    "prebuild": "rimraf ./lib",
+    "prebuild": "rimraf ./lib && rimraf ./storybook-static",
     "build": "babel src --out-dir lib --copy-files --ignore test,*.stories.js --source-maps true",
     "build:watch": "npm run build -- -w",
     "postbuild": "node utils/generateModulesList.js",
-    "deploy:gp": "npm run build-storybook && gh-pages -m 'update [ci skip]' -d ./build",
+    "deploy:gp": "npm run build-storybook && gh-pages -m 'update [ci skip]' -d ./storybook-static",
     "deploy:npm": "npm run build && npm publish ./",
     "build-storybook": "build-storybook",
     "precommit": "lint-staged",
     "prettier": "prettier --single-quote --write",
     "storybook": "start-storybook -p 6006"
   },
-  "files": [
-    "lib",
-    "src",
-    "README.md"
-  ],
+  "files": ["lib", "src", "README.md"],
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
@@ -78,20 +74,12 @@
     "@storybook/cli": "^3.4.6",
     "@storybook/react": "^3.4.6"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
+  "pre-commit": ["lint", "test"],
   "jest": {
     "testRegex": "^.+\\.test\\.js?$",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
+    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
     "automock": false,
-    "setupFiles": [
-      "./setupJest.js"
-    ],
+    "setupFiles": ["./setupJest.js"],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
@@ -104,10 +92,6 @@
     "styled-components": "^3.3.0"
   },
   "lint-staged": {
-    "*.js": [
-      "npm run prettier",
-      "npm run lint:fix",
-      "git add"
-    ]
+    "*.js": ["npm run prettier", "npm run lint:fix", "git add"]
   }
 }
