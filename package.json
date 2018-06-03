@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Quran.com collection of common React UI components",
   "main": "lib/index.js",
   "repository": "git@github.com:quran/common-components.git",
@@ -22,7 +22,11 @@
     "prettier": "prettier --single-quote --write",
     "storybook": "start-storybook -p 6006"
   },
-  "files": ["lib", "src", "README.md"],
+  "files": [
+    "lib",
+    "src",
+    "README.md"
+  ],
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
@@ -74,12 +78,20 @@
     "@storybook/cli": "^3.4.6",
     "@storybook/react": "^3.4.6"
   },
-  "pre-commit": ["lint", "test"],
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "jest": {
     "testRegex": "^.+\\.test\\.js?$",
-    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
     "automock": false,
-    "setupFiles": ["./setupJest.js"],
+    "setupFiles": [
+      "./setupJest.js"
+    ],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
@@ -92,6 +104,10 @@
     "styled-components": "^3.3.0"
   },
   "lint-staged": {
-    "*.js": ["npm run prettier", "npm run lint:fix", "git add"]
+    "*.js": [
+      "npm run prettier",
+      "npm run lint:fix",
+      "git add"
+    ]
   }
 }
