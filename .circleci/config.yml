@@ -18,7 +18,7 @@ jobs:
     - checkout
     - run:
         name: install
-        command: npm install
+        command: npm install --no-save
     - run:
         name: login to npm
         command: |
@@ -35,6 +35,7 @@ jobs:
         command: |
             echo "doing a patch update!"
             npm version patch
+            git add .
             git commit --amend -m 'automated patching [ci skip]'
             git push
     - run:
