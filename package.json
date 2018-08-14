@@ -1,6 +1,6 @@
 {
   "name": "quran-components",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "Quran.com collection of common React UI components",
   "main": "lib/index.js",
   "repository": "git@github.com:quran/common-components.git",
@@ -27,6 +27,12 @@
     "src",
     "README.md"
   ],
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react-icons": "^3.0.5",
+    "react-tether": "^1.0.1",
+    "styled-components": "^3.4.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
@@ -76,7 +82,8 @@
     "@storybook/addon-links": "^3.4.6",
     "@storybook/addon-options": "^3.4.6",
     "@storybook/cli": "^3.4.6",
-    "@storybook/react": "^3.4.6"
+    "@storybook/react": "^3.4.6",
+    "react-test-renderer": "^16.1.1"
   },
   "pre-commit": [
     "lint",
@@ -94,14 +101,9 @@
     ],
     "transform": {
       "^.+\\.js?$": "babel-jest"
-    }
-  },
-  "dependencies": {
-    "prop-types": "^15.6.0",
-    "react-icons": "^2.2.3",
-    "react-test-renderer": "^16.1.1",
-    "react-tether": "^0.6.1",
-    "styled-components": "^3.3.0"
+    },
+    "verbose": true,
+    "testURL": "http://localhost/"
   },
   "lint-staged": {
     "*.js": [
